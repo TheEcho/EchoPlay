@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="page-header">
+      <h1>Connexion</h1>
+  </div>
+</div>
+
+<div class="container">
+    <!-- <div class="alert alert-error"><b>Erreur :</b> nom d'utilisateur ou mot de passe incorrect.</div> -->
+</div>
+
+<hr>
+<div class="container">
+    <form class="form-horizontal" role="form" ng-submit="signin()">
+
+        <div class="form-group">
+            <label for="mail" class="col-md-4 control-label">E-mail </label>
+            <div class="col-md-4">
+                <input type="email" class="form-control input-md" name="mail" id="mail" ng-model="mail" placeholder="Adresse e-mail">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="password">Mot de passe </label>
+            <div class="col-md-4">
+                <input type="password" class="form-control input-md" id="password" name="password" type="password" placeholder="Mot de passe" ng-model="password">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12" style="text-align: center">
+                <button class="btn btn-large btn-warning" type="submit">Connexion</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#/signup" role="button" class="btn btn-large btn-warning">Créer mon espace client</a>
+            </div>
+        </div>
+
+    </form>
+</div>

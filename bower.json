@@ -1,0 +1,32 @@
+{
+  "name": "corpusRecorderApp",
+  "description": "Outil d'acquisition et de réenregistrement.",
+  "main": "server.js",
+  "authors": [
+    "Echo"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "corpus",
+    "Recorder"
+  ],
+  "homepage": "client/templates/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.4",
+    "angular-file-upload": "^2.3.4",
+    "ng-table": "^1.0.0"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 2"
+  }
+}

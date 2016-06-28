@@ -1,0 +1,18 @@
+{
+  "name": "corpusRecorderApp",
+  "version": "1.0.0",
+  "description": "Outil d'acquisition et de réenregistrement.",
+  "main": "server.js",
+  "author": "Echo",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "formidable": "^1.0.17",
+    "glob": "^7.0.5",
+    "jsonwebtoken": "^7.0.0",
+    "method-override": "^2.1.3",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.1.1",
+    "node-ffprobe": "^1.2.2"
+  }
+}
