@@ -81,10 +81,9 @@ angular.module('EchoPlayApp')
         });
 
         $scope.deleteFile = function (file) {
-            console.log(file);
             var formData = {
                 id: file.id,
-                file: file.name
+                file: file.title
             }
 
             Main.delete(formData, function (res) {
