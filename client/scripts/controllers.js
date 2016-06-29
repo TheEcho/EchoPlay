@@ -80,7 +80,7 @@ angular.module('EchoPlayApp')
             $rootScope.error = 'Failed to fetch details';
         });
 
-        $scope.deleteFile(file) {
+        $scope.deleteFile = function (file) {
             Main.delete(file.name, function (res) {
 
             }, function () {
