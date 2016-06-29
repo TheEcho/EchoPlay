@@ -35,7 +35,8 @@
     "videogular-poster": "^1.4.4",
     "videogular-ima-ads": "^1.4.4",
     "videogular-angulartics": "^1.4.4",
-    "angular-sanitize": "^1.5.7"
+    "angular-sanitize": "^1.5.7",
+    "videogular-themes-default": "^1.4.4"
   },
   "resolutions": {
     "jquery": "1.9.1 - 2"
