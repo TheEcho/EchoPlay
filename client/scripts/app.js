@@ -40,7 +40,6 @@ angular.module('EchoPlayApp',
                     'request': function (config) {
                         config.headers = config.headers || {};
                         if ($localStorage.token) {
-                            console.log($localStorage.token);
                             config.headers.Authorization = 'Cr3awav3 ' + $localStorage.token;
                         }
                         return config;

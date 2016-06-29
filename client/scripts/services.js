@@ -39,16 +39,16 @@ angular.module('EchoPlayApp')
 
         return {
             save: function(data, success, error) {
-                $http.post(baseUrl + '/signin', data).success(success).error(error);
+                $http.post('/signin', data).success(success).error(error);
             },
             signin: function(data, success, error) {
-                $http.post(baseUrl + '/authenticate', data).success(success).error(error);
+                $http.post('/authenticate', data).success(success).error(error);
             },
             home: function(success, error) {
-                $http.get(baseUrl + '/home').success(success).error(error);
+                $http.get('/home').success(success).error(error);
             },
-            deleteAll: function(success, error) {
-                $http.get(baseUrl + '/delete').success(success).error(error);
+            delete: function(success, error) {
+                $http.get('/delete').success(success).error(error);
             },
             logout: function(success) {
                 changeUser({});
