@@ -1,23 +1,35 @@
 'use strict';
 
-angular.module('EchoPlayApp', ['ngStorage','ngRoute', 'angularFileUpload', 'ngTable'])
+angular.module('EchoPlayApp',
+    [
+        'ngStorage',
+        'ngRoute',
+        'angularFileUpload',
+        "ngSanitize",
+        'ngTable',
+        'com.2fdevs.videogular',
+        'com.2fdevs.videogular.plugins.controls',
+        'com.2fdevs.videogular.plugins.overlayplay',
+        'com.2fdevs.videogular.plugins.poster'
+    ])
+
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider.
             when('/', {
                 templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl'
+                controller: 'MainCtrl'
             }).
             when('/uploadfile', {
                 templateUrl: 'templates/upload.html',
-                controller: 'HomeCtrl'
+                controller: 'MainCtrl'
             }).
             when('/signin', {
                 templateUrl: 'templates/signin.html',
-                controller: 'HomeCtrl'
+                controller: 'MainCtrl'
             }).
             when('/signup', {
                 templateUrl: 'templates/signup.html',
-                controller: 'HomeCtrl'
+                controller: 'MainCtrl'
             }).
             otherwise({
                 redirectTo: '/'

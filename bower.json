@@ -24,7 +24,15 @@
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.4",
     "angular-file-upload": "^2.3.4",
-    "ng-table": "^1.0.0"
+    "ng-table": "^1.0.0",
+    "videogular": "^1.4.4",
+    "videogular-controls": "^1.4.4",
+    "videogular-buffering": "^1.4.4",
+    "videogular-overlay-play": "^1.4.4",
+    "videogular-poster": "^1.4.4",
+    "videogular-ima-ads": "^1.4.4",
+    "videogular-angulartics": "^1.4.4",
+    "angular-sanitize": "^1.5.7"
   },
   "resolutions": {
     "jquery": "1.9.1 - 2"

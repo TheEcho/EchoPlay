@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('EchoPlayApp')
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $scope, $location, $localStorage, $route, Main) {
+    .controller('MainCtrl', ['$rootScope', '$scope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $scope, $location, $localStorage, $route, Main) {
         if ($localStorage.token) $rootScope.isLogged = true;
         else $rootScope.isLogged = false;
 
@@ -40,8 +40,8 @@ angular.module('EchoPlayApp')
             })
         };
 
-        $scope.profil = function() {
-            Main.profil(function(res) {
+        $scope.home = function() {
+            Main.home(function(res) {
             }, function() {
                 $rootScope.error = 'Failed to fetch details';
             })
@@ -58,10 +58,8 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('ProfilCtrl', ['$rootScope', '$scope', '$location', 'NgTableParams', 'Main', function($rootScope, $scope, $location, NgTableParams, Main) {
-        initRecorder();
-
-        Main.profil(function(res) {
+    .controller('HomeCtrl', ['$rootScope', '$scope', '$location', 'NgTableParams', 'Main', function($rootScope, $scope, $location, NgTableParams, Main) {
+        Main.home(function(res) {
             $scope.data = [];
             $scope.userid = res.userid;
             for (var i = 0; i < res.data.length; i ++) {
@@ -82,6 +80,30 @@ angular.module('EchoPlayApp')
             $rootScope.error = 'Failed to fetch details';
         });
     }])
+
+
+        .controller('MediaCtrl', ['$sce', function($sce) {
+            this.config = {
+    			sources: [
+    				{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
+    				{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
+    				{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
+    			],
+    			tracks: [
+    				{
+    					src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
+    					kind: "subtitles",
+    					srclang: "en",
+    					label: "English",
+    					default: ""
+    				}
+    			],
+    			theme: "lib/videogular-themes-default/videogular.css",
+    			plugins: {
+    				poster: "http://www.videogular.com/assets/images/videogular.png"
+    			}
+    		};
+        }])
 
     .controller('UploadCtrl', ['$scope', '$localStorage', '$route', 'NgTableParams', 'Main', 'FileUploader', function($scope, $localStorage, $route, NgTableParams, Main, FileUploader) {
 

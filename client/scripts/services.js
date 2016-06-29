@@ -1,6 +1,6 @@
 'use strict';
 
-var baseUrl = "http://echo-play:8080";
+var baseUrl = "http://echo-play.eu";
 
 angular.module('EchoPlayApp')
     .factory('Main', ['$http', '$localStorage', function($http, $localStorage){
@@ -44,7 +44,7 @@ angular.module('EchoPlayApp')
             signin: function(data, success, error) {
                 $http.post(baseUrl + '/authenticate', data).success(success).error(error);
             },
-            profil: function(success, error) {
+            home: function(success, error) {
                 $http.get(baseUrl + '/home').success(success).error(error);
             },
             deleteAll: function(success, error) {
