@@ -162,7 +162,7 @@ module.exports = function (app) {
         });
     });
 
-    mainRouter.get('/delete', function (req, res) {
+    mainRouter.post('/delete', function (req, res) {
         User.findOne({_id: req.token._doc._id}, function (err, user) {
             dir = app.get('mediaFilePath') + user._id + '/';
             File.remove({}, function (err) {

@@ -83,7 +83,7 @@ angular.module('EchoPlayApp')
         $scope.deleteFile = function (file) {
             Main.delete(file.name, function (res) {
 
-            }, function () {
+            }, function (err) {
 
             });
         }

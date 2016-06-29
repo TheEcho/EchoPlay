@@ -47,8 +47,8 @@ angular.module('EchoPlayApp')
             home: function(success, error) {
                 $http.get('/home').success(success).error(error);
             },
-            delete: function(success, error) {
-                $http.get('/delete').success(success).error(error);
+            delete: function(data, success, error) {
+                $http.post('/delete', data).success(success).error(error);
             },
             logout: function(success) {
                 changeUser({});
