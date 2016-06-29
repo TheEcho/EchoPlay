@@ -170,7 +170,7 @@ module.exports = function (app) {
                 if (err) throw err;
                 fs.unlink(dir + req.body.name, function (err) {
                     if (err) throw err;
-                    console.log(item + " deleted");
+                    console.log(req.body.name + " deleted");
                 });
                 res.json({
                     success: true,
