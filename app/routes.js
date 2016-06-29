@@ -62,7 +62,6 @@ module.exports = function (app) {
                     userModel.save(function (err, user) {
                         user.token = jwt.sign(user, app.get('superSecret'));
                         user.save(function (err, user1) {
-                            console.log('User \'' + user1.mail + '\' created !');
                             res.json({
                                 success: true,
                                 token: user1.token,
@@ -144,9 +143,7 @@ module.exports = function (app) {
                     FileModel.name = file.name;
                     FileModel.path = dir;
                     FileModel.user = user;
-                    FileModel.save(function (err, file1) {
-                        console.log(file1.name + ' created !');
-                    });
+                    FileModel.save(function (err, file1) {});
                 });
                 form.on('error', function (err) {
                     console.log('An error has occured: \n' + err);
@@ -165,16 +162,14 @@ module.exports = function (app) {
     mainRouter.post('/delete', function (req, res) {
         User.findOne({_id: req.token._doc._id}, function (err, user) {
             dir = app.get('mediaFilePath') + user._id + '/';
-            console.log(req.body);
             File.remove({_id: req.body.id}, function (err) {
                 if (err) throw err;
                 fs.unlink(dir + req.body.name, function (err) {
                     if (err) throw err;
-                    console.log(req.body.name + " deleted");
-                });
-                res.json({
-                    success: true,
-                    data: "All files has been deleted successfuly"
+                    res.json({
+                        success: true,
+                        data: "All files has been deleted successfuly"
+                    });
                 });
             });
         });

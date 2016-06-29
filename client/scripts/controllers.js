@@ -87,7 +87,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.delete(formData, function (res) {
-                $route.reload();
+                $scope.tableParams.reload();
             }, function () {
                 $rootScope.error = 'Failed to delete';
             });
