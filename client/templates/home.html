@@ -1,7 +1,7 @@
 <div class="row" ng-controller="ProfilCtrl">
     <div class="container">
       <div class="page-header">
-          <h1>Vos Réenregistrements</h1>
+          <h1>Echo Play</h1>
       </div>
     </div>
 
@@ -12,22 +12,8 @@
             <table ng-table="tableParams" class="table table-hover" id="fileList" show-filter="false">
                 <tr ng-repeat="track in $data">
                     <td data-title="'Fichier'" class="text-center">{{ track.title }}</td>
-                    <td data-title="'Réenregistrer'" class="text-center">
-                        <button class="btn btn-large btn-warning glyphicon glyphicon-repeat" ng-click="recordTrack(track)"/>
-                    </td>
-                    <td data-title="'Fichier original'" class="text-center">
-                        <button class="btn btn-large btn-warning glyphicon glyphicon-play" ng-click="playOriginalTrack(track)"/>
-                    </td>
-                    <td data-title="'Fichier réenregistré'" class="text-center">
-                        <button ng-if="track.canPlay" class="btn btn-large btn-warning" ng-click="playRecordedTrack(track)">
-                            <span class="glyphicon glyphicon-play"/>
-                        </button>
-                    </td>
                 </tr>
             </table>
-            <button class="btn btn-large btn-warning" ng-click="recordAllTrack()">
-                <span class="glyphicon glyphicon-play"/> Lancer le réenregistrement de tous vos fichiers
-            </button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-var baseUrl = "http://localhost:8080";
+var baseUrl = "http://echo-play:8080";
 
 angular.module('corpusRecorderApp')
     .factory('Main', ['$http', '$localStorage', function($http, $localStorage){
