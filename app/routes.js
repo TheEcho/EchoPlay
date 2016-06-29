@@ -36,7 +36,6 @@ module.exports = function (app) {
     });
 
     mainRouter.post('/signin', function (req, res) {
-        console.log('/signin');
         User.findOne({mail: req.body.mail}, function (err, user) {
             if (err) {
                 res.json({
@@ -63,7 +62,7 @@ module.exports = function (app) {
                     userModel.save(function (err, user) {
                         user.token = jwt.sign(user, app.get('superSecret'));
                         user.save(function (err, user1) {
-                            console.log('User \'' + user1 + '\' created !');
+                            console.log('User \'' + user1.mail + '\' created !');
                             res.json({
                                 success: true,
                                 token: user1.token,
