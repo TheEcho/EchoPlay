@@ -58,7 +58,7 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$location', 'NgTableParams', 'Main', function($rootScope, $scope, $location, NgTableParams, Main) {
+    .controller('HomeCtrl', ['$rootScope', '$scope', '$location', '$route', 'NgTableParams', 'Main', function($rootScope, $scope, $location, $route, NgTableParams, Main) {
         Main.home(function(res) {
             $scope.data = [];
             $scope.userid = res.userid;
@@ -87,6 +87,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.delete(formData, function (res) {
+                $route.reload();
             }, function () {
                 $rootScope.error = 'Failed to delete';
             });
