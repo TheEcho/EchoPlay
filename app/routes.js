@@ -165,9 +165,9 @@ module.exports = function (app) {
     mainRouter.post('/delete', function (req, res) {
         User.findOne({_id: req.token._doc._id}, function (err, user) {
             dir = app.get('mediaFilePath') + user._id + '/';
-            File.remove({}, function (err) {
+            console.log(req.body);
+            File.remove({_id: req.body.file}, function (err) {
                 if (err) throw err;
-                console.log(dir + req.body.file);
                 fs.unlink(dir + req.body.file, function (err) {
                     if (err) throw err;
                     console.log(item + " deleted");
