@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('corpusRecorderApp', ['ngStorage','ngRoute', 'angularSoundManager', 'angularAudioRecorder', 'angularFileUpload', 'ngTable'])
+angular.module('EchoPlayApp', ['ngStorage','ngRoute', 'angularFileUpload', 'ngTable'])
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider.
             when('/', {
@@ -42,9 +42,3 @@ angular.module('corpusRecorderApp', ['ngStorage','ngRoute', 'angularSoundManager
             }]);
         }
     ])
-
-    .config(function (recorderServiceProvider) {
-        recorderServiceProvider
-        .forceSwf(false)
-        .withMp3Conversion(true);
-    });

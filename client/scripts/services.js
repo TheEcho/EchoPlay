@@ -2,7 +2,7 @@
 
 var baseUrl = "http://echo-play:8080";
 
-angular.module('corpusRecorderApp')
+angular.module('EchoPlayApp')
     .factory('Main', ['$http', '$localStorage', function($http, $localStorage){
         function changeUser(user) {
             angular.extend(currentUser, user);

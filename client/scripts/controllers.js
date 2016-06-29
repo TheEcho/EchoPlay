@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('corpusRecorderApp')
+angular.module('EchoPlayApp')
     .controller('HomeCtrl', ['$rootScope', '$scope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $scope, $location, $localStorage, $route, Main) {
         if ($localStorage.token) $rootScope.isLogged = true;
         else $rootScope.isLogged = false;
@@ -25,7 +25,8 @@ angular.module('corpusRecorderApp')
         $scope.signup = function() {
             var formData = {
                 mail: $scope.mail,
-                password: $scope.password,
+                firstPassword: $scope.firstPassword,
+                secondPassword: $scope.secondPassword,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname
             }
@@ -59,18 +60,17 @@ angular.module('corpusRecorderApp')
 
     .controller('ProfilCtrl', ['$rootScope', '$scope', '$location', 'NgTableParams', 'Main', function($rootScope, $scope, $location, NgTableParams, Main) {
         initRecorder();
-        $scope.timeLimit = 60;
 
         Main.profil(function(res) {
             $scope.data = [];
             $scope.userid = res.userid;
             for (var i = 0; i < res.data.length; i ++) {
-                var track = {
+                var file = {
                     id: res.data[i]._id,
                     title: res.data[i].name,
                     url: '/media/' + res.userid + '/' + res.data[i].name,
                 };
-                $scope.data.push(track);
+                $scope.data.push(file);
             }
             $scope.tableParams = new NgTableParams({
                 count: 20
@@ -81,10 +81,6 @@ angular.module('corpusRecorderApp')
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
-
-        $scope.playOriginalTrack = function (track) {
-            isPlaying ? stopPlaying() : startPlaying(track, function() {}, function() {});
-        }
     }])
 
     .controller('UploadCtrl', ['$scope', '$localStorage', '$route', 'NgTableParams', 'Main', 'FileUploader', function($scope, $localStorage, $route, NgTableParams, Main, FileUploader) {
