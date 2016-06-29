@@ -1,6 +1,6 @@
 'use strict';
 
-var baseUrl = "http://echo-play.eu";
+var baseUrl = "echo-play.eu";
 
 angular.module('EchoPlayApp')
     .factory('Main', ['$http', '$localStorage', function($http, $localStorage){

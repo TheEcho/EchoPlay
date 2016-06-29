@@ -1,11 +1,11 @@
 // server.js
 
-var express  = require('express');
-var app      = express();
-var mongoose = require('mongoose');
-var settings = require('./config/settings.js');
-var morgan   = require('morgan');
-var bodyParser = require('body-parser');
+var express        = require('express');
+var app            = express();
+var mongoose       = require('mongoose');
+var settings       = require('./config/settings.js');
+var morgan         = require('morgan');
+var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
 mongoose.connect(settings.dburl);
