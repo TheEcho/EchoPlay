@@ -37,14 +37,14 @@ angular.module('EchoPlayApp')
                 $location.path('/');
             }, function() {
                 $rootScope.error = 'Failed to signup';
-            })
+            });
         };
 
         $scope.home = function() {
             Main.home(function(res) {
             }, function() {
                 $rootScope.error = 'Failed to fetch details';
-            })
+            });
         };
 
         $scope.logout = function() {
@@ -81,10 +81,13 @@ angular.module('EchoPlayApp')
         });
 
         $scope.deleteFile = function (file) {
-            Main.delete(file.name, function (res) {
+            var formData = {
+                file: file.name
+            }
 
-            }, function (err) {
-
+            Main.delete(formData, function (res) {
+            }, function () {
+                $rootScope.error = 'Failed to delete';
             });
         }
     }])
