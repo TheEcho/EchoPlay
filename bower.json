@@ -1,6 +1,6 @@
 {
-  "name": "corpusRecorderApp",
-  "description": "Outil d'acquisition et de réenregistrement.",
+  "name": "EchoPlayApp",
+  "description": "Angular / NodeJS media player.",
   "main": "server.js",
   "authors": [
     "Echo"

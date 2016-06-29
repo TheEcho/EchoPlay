@@ -1,7 +1,7 @@
 {
-  "name": "corpusRecorderApp",
+  "name": "EchoPlayApp",
   "version": "1.0.0",
-  "description": "Outil d'acquisition et de réenregistrement.",
+  "description": "Angular / NodeJS media player.",
   "main": "server.js",
   "author": "Echo",
   "dependencies": {
