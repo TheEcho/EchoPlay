@@ -169,6 +169,7 @@ module.exports = function (app) {
                 if (err) throw err;
                 glob(dir + req.body.file, function (err ,files) {
                      if (err) throw err;
+                     console.log(files);
                      files.forEach(function (item,index,array) {
                           fs.unlink(item, function (err) {
                                if (err) throw err;
