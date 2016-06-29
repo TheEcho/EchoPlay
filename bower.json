@@ -7,8 +7,11 @@
   ],
   "license": "MIT",
   "keywords": [
-    "corpus",
-    "Recorder"
+    "EchoPlay",
+    "media",
+    "player",
+    "music",
+    "media player"
   ],
   "homepage": "client/templates/index.html",
   "ignore": [

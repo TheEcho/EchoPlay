@@ -46,6 +46,7 @@ angular.module('EchoPlayApp',
                     },
                     'responseError': function(response) {
                         if (response.status === 401 || response.status === 403) {
+                            console.log(response.data);
                             $location.path('/signin');
                         }
                         return $q.reject(response);
