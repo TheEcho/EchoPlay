@@ -166,9 +166,9 @@ module.exports = function (app) {
         User.findOne({_id: req.token._doc._id}, function (err, user) {
             dir = app.get('mediaFilePath') + user._id + '/';
             console.log(req.body);
-            File.remove({_id: req.body.file}, function (err) {
+            File.remove({_id: req.body.id}, function (err) {
                 if (err) throw err;
-                fs.unlink(dir + req.body.file, function (err) {
+                fs.unlink(dir + req.body.name, function (err) {
                     if (err) throw err;
                     console.log(item + " deleted");
                 });
