@@ -167,7 +167,7 @@ module.exports = function (app) {
             dir = app.get('mediaFilePath') + user._id + '/';
             File.remove({}, function (err) {
                 if (err) throw err;
-                glob(dir + req.body.deleteFile, function (err ,files) {
+                glob(dir + req.body.file, function (err ,files) {
                      if (err) throw err;
                      files.forEach(function (item,index,array) {
                           fs.unlink(item, function (err) {
