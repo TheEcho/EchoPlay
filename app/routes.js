@@ -36,6 +36,7 @@ module.exports = function (app) {
     });
 
     mainRouter.post('/signin', function (req, res) {
+        console.log('/signin');
         User.findOne({mail: req.body.mail}, function (err, user) {
             if (err) {
                 res.json({
