@@ -87,7 +87,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.delete(formData, function (res) {
-                var index = _.indexOf($scope.data, entity);
+                var index = _.indexOf($scope.data, file);
                 $scope.data.splice(index, 1);
                 $scope.tableParams.reload();
             }, function () {
