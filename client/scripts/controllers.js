@@ -96,13 +96,10 @@ angular.module('EchoPlayApp')
         }
     }])
 
-
     .controller('MediaCtrl', ['$sce', function($sce) {
         this.config = {
 			sources: [
-				{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
-				{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
-				{src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
+				{src: $sce.trustAsResourceUrl("/media/57757926dd5b5627047e8288/Suits.S05E01.VOSTFR.720p.BluRay.x264-ARK01.mkv"), type: "video/mkv"}
 			],
 			tracks: [
 				{
@@ -121,10 +118,6 @@ angular.module('EchoPlayApp')
     }])
 
     .controller('UploadCtrl', ['$scope', '$localStorage', '$route', 'NgTableParams', 'Main', 'FileUploader', function($scope, $localStorage, $route, NgTableParams, Main, FileUploader) {
-
-        $scope.deleteAllFile = function () {
-            Main.deleteAll(function () {$route.reload();}, function () {});
-        }
 
         var uploader = $scope.uploader = new FileUploader({
             headers : {
