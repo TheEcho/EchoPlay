@@ -87,7 +87,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.delete(formData, function (res) {
-                _.remove($scope.tableParams.settings().dataset, function (item) {
+                $scope.data.remove($scope.tableParams.settings().dataset, function (item) {
                     return file === item;
                 });
                 $scope.tableParams.reload().then(function(data) {
