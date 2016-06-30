@@ -99,17 +99,9 @@ angular.module('EchoPlayApp')
     .controller('MediaCtrl', ['$sce', function($sce) {
         this.config = {
 			sources: [
-				{src: $sce.trustAsResourceUrl("/media/57757926dd5b5627047e8288/Suits.S05E01.VOSTFR.720p.BluRay.x264-ARK01.mkv"), type: "video/mkv"}
+				{src: $sce.trustAsResourceUrl("/media/57757926dd5b5627047e8288/Rick Astley - Never Gonna Give You Up.mp4"), type: "video/mp4"}
 			],
-			tracks: [
-				{
-					src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
-					kind: "subtitles",
-					srclang: "en",
-					label: "English",
-					default: ""
-				}
-			],
+			tracks: [],
 			theme: "lib/videogular-themes-default/videogular.css",
 			plugins: {
 				poster: "http://www.videogular.com/assets/images/videogular.png"
