@@ -4,6 +4,7 @@ var Schema   = mongoose.Schema;
 
 var schema = new Schema({
     name: String,
+    ext: String,
     path: String,
     user: [{
         type: mongoose.Schema.Types.ObjectId,

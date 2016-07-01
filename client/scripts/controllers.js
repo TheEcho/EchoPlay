@@ -58,14 +58,15 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$route', 'NgTableParams', 'Main', function($rootScope, $scope, $route, NgTableParams, Main) {
+    .controller('HomeCtrl', ['$rootScope', '$scope', '$location', '$route', 'NgTableParams', 'Main', function($rootScope, $scope, $location, $route, NgTableParams, Main) {
         Main.home(function(res) {
             $scope.data = [];
             $scope.userid = res.userid;
             for (var i = 0; i < res.data.length; i ++) {
                 var file = {
                     id: res.data[i]._id,
-                    title: res.data[i].name,
+                    name: res.data[i].name,
+                    ext: res.data[i].ext,
                     url: '/media/' + res.userid + '/' + res.data[i].name,
                 };
                 $scope.data.push(file);
@@ -79,6 +80,11 @@ angular.module('EchoPlayApp')
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
+
+        $scope.playFile = function (file) {
+            $rootScope.currentFile = file;
+            $location.path('/play');
+        }
 
         $scope.deleteFile = function (file) {
             var formData = {
@@ -96,10 +102,11 @@ angular.module('EchoPlayApp')
         }
     }])
 
-    .controller('MediaCtrl', ['$sce', function($sce) {
+    .controller('MediaCtrl', ['$sce', '$rootScope', function($sce, $rootScope) {
+        this.currentFile = $rootScope.currentFile;
         this.config = {
 			sources: [
-				{src: $sce.trustAsResourceUrl("/media/57757926dd5b5627047e8288/Rick Astley - Never Gonna Give You Up.mp4"), type: "video/mp4"}
+				{src: $sce.trustAsResourceUrl(this.currentFile.url), type: "video/" + this.currentFile.ext}
 			],
 			tracks: [],
 			theme: "lib/videogular-themes-default/videogular.css",

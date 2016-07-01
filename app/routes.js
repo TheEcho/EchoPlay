@@ -141,6 +141,7 @@ module.exports = function (app) {
                     fs.rename(file.path, path.join(form.uploadDir, file.name));
                     var FileModel = new File();
                     FileModel.name = file.name;
+                    FileModel.ext = file.name.substr((~-file.name.lastIndexOf(".") >>> 0) + 2);
                     FileModel.path = dir;
                     FileModel.user = user;
                     FileModel.save(function (err, file1) {});
