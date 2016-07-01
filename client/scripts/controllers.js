@@ -104,6 +104,7 @@ angular.module('EchoPlayApp')
 
     .controller('MediaCtrl', ['$sce', '$rootScope', function($sce, $rootScope) {
         this.currentFile = $rootScope.currentFile;
+        console.log(this.currentFile);
         this.config = {
 			sources: [
 				{src: $sce.trustAsResourceUrl(this.currentFile.url), type: "video/" + this.currentFile.ext}

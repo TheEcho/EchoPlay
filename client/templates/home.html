@@ -11,7 +11,7 @@
             <h4>Your Files</h4>
             <table ng-table="tableParams" class="table table-hover" id="fileList" show-filter="false">
                 <tr ng-repeat="file in $data">
-                    <td data-title="" class="text-center"><button class="btn btn-warning glyphicon glyphicon-play" ng-href="#/play"></td>
+                    <td data-title="" class="text-center"><button class="btn btn-warning glyphicon glyphicon-play" ng-click="playFile(file)"></td>
                     <td data-title="'Fichier'" class="text-center">{{ file.name }}</td>
                     <td data-title="" class="text-center"><button class="btn btn-warning glyphicon glyphicon-trash" ng-click="deleteFile(file)"></td>
                 </tr>
