@@ -104,16 +104,12 @@ angular.module('EchoPlayApp')
 
     .controller('MediaCtrl', ['$sce', '$rootScope', function($sce, $rootScope) {
         this.currentFile = $rootScope.currentFile;
-        console.log(this.currentFile);
         this.config = {
 			sources: [
 				{src: $sce.trustAsResourceUrl(this.currentFile.url), type: "video/" + this.currentFile.ext}
 			],
 			tracks: [],
 			theme: "lib/videogular-themes-default/videogular.css",
-			plugins: {
-				poster: "http://www.videogular.com/assets/images/videogular.png"
-			}
 		};
     }])
 
