@@ -102,7 +102,8 @@ angular.module('EchoPlayApp')
         }
     }])
 
-    .controller('MediaCtrl', ['$sce', '$rootScope', function($sce, $rootScope) {
+    .controller('MediaCtrl', ['$sce', '$rootScope', '$location', function($sce, $rootScope, $location) {
+        if (!$rootScope.currentFile) $location.path('/');
         this.currentFile = $rootScope.currentFile;
         this.config = {
 			sources: [
