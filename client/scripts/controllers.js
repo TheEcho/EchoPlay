@@ -103,15 +103,18 @@ angular.module('EchoPlayApp')
     }])
 
     .controller('MediaCtrl', ['$sce', '$rootScope', '$location', function($sce, $rootScope, $location) {
-        if (!$rootScope.currentFile) $location.path('/');
-        this.currentFile = $rootScope.currentFile;
-        this.config = {
-			sources: [
-				{src: $sce.trustAsResourceUrl(this.currentFile.url), type: "video/" + this.currentFile.ext}
-			],
-			tracks: [],
-			theme: "lib/videogular-themes-default/videogular.css",
-		};
+        if (!$rootScope.currentFile) {
+            $location.path('/');
+        } else {
+            this.currentFile = $rootScope.currentFile;
+            this.config = {
+    			sources: [
+    				{src: $sce.trustAsResourceUrl(this.currentFile.url), type: "video/" + this.currentFile.ext}
+    			],
+    			tracks: [],
+    			theme: "lib/videogular-themes-default/videogular.css",
+    		};
+        }
     }])
 
     .controller('UploadCtrl', ['$scope', '$localStorage', '$route', 'NgTableParams', 'Main', 'FileUploader', function($scope, $localStorage, $route, NgTableParams, Main, FileUploader) {
