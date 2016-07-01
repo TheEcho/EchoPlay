@@ -37,7 +37,8 @@
     "videogular-angulartics": "^1.4.4",
     "angular-sanitize": "^1.5.7",
     "videogular-themes-default": "^1.4.4",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "angular-material": "^1.0.9"
   },
   "resolutions": {
     "jquery": "1.9.1 - 2"
