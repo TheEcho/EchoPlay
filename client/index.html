@@ -22,30 +22,12 @@
     <body ng-app="EchoPlayApp" layout="column" ng-controller="MainCtrl as mCtrl" ng-cloak>
         <md-toolbar layout="row">
             <md-button class="menu" hide-gt-sm ng-href="#/" aria-label="Echo Play">
-                <md-icon md-svg-src="static/img/favicon.ico" ></md-icon>
+                <img src="static/img/favicon.ico"></img>
             </md-button>
             <h1>Echo Play - Cloud Entertainment</h1>
-            <md-fab-speed-dial md-direction="left" ng-class="md-fling">
-                <md-fab-trigger>
-                    <md-button aria-label="menu" class="md-fab md-warn">
-                        <md-icon md-font-icon="account_circle"></md-icon>
-                    </md-button>
-                </md-fab-trigger>
-                <md-fab-actions>
-                    <md-button aria-label="Connexion" class="md-fab md-raised md-mini" ng-href="#/signin">
-                        <md-icon md-font-icon="account_circle" aria-label="Mon compte"></md-icon>
-                    </md-button>
-                    <md-button aria-label="S'inscrire" class="md-fab md-raised md-mini" ng-href="#/signup">
-                        <md-icon md-font-icon="create" aria-label="S'inscrire"></md-icon>
-                    </md-button>
-                    <md-button aria-label="Mon compte" class="md-fab md-raised md-mini">
-                        <md-icon md-font-icon="account_circle" aria-label="Mon compte"></md-icon>
-                    </md-button>
-                    <md-button aria-label="Deconnexion" class="md-fab md-raised md-mini" ng-click="mCtrl.logout()">
-                        <md-icon md-font-icon="account_circle" aria-label="Mon compte"></md-icon>
-                    </md-button>
-                </md-fab-actions>
-            </md-fab-speed-dial>
+            <md-button aria-label="Connexion" class="md-fab md-raised md-mini" ng-href="#/signin">
+                <md-icon md-font-icon="account_circle" aria-label=""></md-icon>
+            </md-button>
         </md-toolbar>
 
         <div flex layout="row" class="container" ng-view="">
