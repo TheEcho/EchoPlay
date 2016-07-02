@@ -1,27 +1,22 @@
-<div ng-controller="MainCtrl as mCtrl" layout="column" ng-cloak class="md-inline-form">
+<div ng-controller="MainCtrl as mCtrl" class="md-inline-form" ng-cloak>
     <md-content layout-gt-sm="row" layout-padding>
         <div>
-            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button>{{title1}}</md-button>
-                <md-button md-no-ink class="md-primary">Primary (md-noink)</md-button>
-                <md-button ng-disabled="true" class="md-primary">Disabled</md-button>
-                <md-button class="md-warn">{{title4}}</md-button>
-                <div class="label">Flat</div>
+            <section layout="row" layout-sm="row" layout-align="center center" layout-wrap>
+                <md-input-container>
+                    <label>E-mail</label>
+                    <input ng-model="mCtrl.mail">
+                </md-input-container>
+                <md-input-container>
+                    <label>Mot de passe</label>
+                    <input type="password" ng-model="mCtrl.password">
+                </md-input-container>
             </section>
-            <md-input-container>
-                <label>E-mail</label>
-                <input ng-model="mCtrl.mail">
-            </md-input-container>
-            <md-input-container>
-                <label>Mot de passe</label>
-                <input type="password" ng-model="mCtrl.password">
-            </md-input-container>
         </div>
-        <md-button ng-click="mCtrl.signin" ng-class="md-raised md-primary">
-          Se connecter
+        <md-button ng-click="mCtrl.signin" ng-class="md-raised primary">
+            Se connecter
         </md-button>
-        <md-button ng-href="#/signup" ng-class="md-raised md-primary">
-          Créer mon espace
+        <md-button ng-href="#/signup" ng-class="md-raised primary">
+            Créer mon espace
         </md-button>
     </md-content>
 </div>
