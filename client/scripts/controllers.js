@@ -116,10 +116,10 @@ angular.module('EchoPlayApp')
     			theme: "lib/videogular-themes-default/videogular.css",
     		};
             $mdDialog.show({
-                controller: self,
+                controller: 'HomeCtrl',
                 templateUrl: 'templates/play.html',
                 parent: angular.element(document.body),
-                // targetEvent: ev,
+                targetEvent: ev,
                 clickOutsideToClose: true
             });
         }
