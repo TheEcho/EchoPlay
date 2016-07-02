@@ -2,7 +2,7 @@
     <md-sidenav  ng-click="hCtrl.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
         <md-list>
             <md-list-item ng-repeat="type in hCtrl.types">
-                <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
+                <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }" md-ripple-size="full">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
                     {{type.name}}
                 </md-button>
