@@ -75,17 +75,11 @@ angular.module('EchoPlayApp')
             {name: 'Image', icon: 'image'}
         ]
         self.user          = null;
+        self.media         = null;
         self.playFile      = playFile;
         self.toggleSidebar = toggleSideList;
         self.playFile      = playFile;
         self.deleteFile    = deleteFile;
-        self.media = {
-			sources: [
-				{src: $sce.trustAsResourceUrl(self.currentFile.url), type: "video/" + self.currentFile.ext}
-			],
-			tracks: [],
-			theme: "lib/videogular-themes-default/videogular.css",
-		};
 
         Main.home(function(res) {
             self.user = res.userid;
@@ -99,7 +93,7 @@ angular.module('EchoPlayApp')
                 };
                 self.files.push(file);
             }
-            self.selected = self.files[0];
+            self.selectedFile = self.files[0];
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
