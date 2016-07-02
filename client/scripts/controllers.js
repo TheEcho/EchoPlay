@@ -63,7 +63,7 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', 'Main', function($rootScope, , $mdSidenav, $location, $route, Main) {
+    .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', 'Main', function($rootScope, $mdSidenav, $location, $route, Main) {
         var self = this;
 
         self.selected      = null;
