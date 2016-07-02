@@ -116,7 +116,7 @@ angular.module('EchoPlayApp')
     			theme: "lib/videogular-themes-default/videogular.css",
     		};
             $mdDialog.show({
-                controller: HomeCtrl,
+                controller: self,
                 templateUrl: 'dialog1.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
