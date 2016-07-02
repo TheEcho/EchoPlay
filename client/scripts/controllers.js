@@ -88,10 +88,11 @@ angular.module('EchoPlayApp')
                     name: res.data[i].name,
                     ext: res.data[i].ext,
                     url: '/media/' + self.user + '/' + res.data[i].name,
+                    icon: 'icon-image'
                 };
                 self.files.push(file);
             }
-            self.selected = files[0];
+            self.selected = self.files[0];
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
