@@ -104,6 +104,10 @@ angular.module('EchoPlayApp')
           self.selected = angular.isNumber(type) ? self.types[type] : type;
         }
 
+        function selectFile (file) {
+          self.selected = angular.isNumber(file) ? self.files[file] : file;
+        }
+
         function playFile (file) {
             $rootScope.currentFile = file;
             $location.path('/play');
