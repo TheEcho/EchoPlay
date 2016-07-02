@@ -62,7 +62,7 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', 'Main', function($rootScope, $mdSidenav, $location, $route, Main) {
+    .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', '$sce', 'Main', function($rootScope, $mdSidenav, $location, $route, $sce, Main) {
         var self = this;
 
         self.selectedType  = null;
@@ -79,6 +79,13 @@ angular.module('EchoPlayApp')
         self.toggleSidebar = toggleSideList;
         self.playFile      = playFile;
         self.deleteFile    = deleteFile;
+        self.media = {
+			sources: [
+				{src: $sce.trustAsResourceUrl(self.currentFile.url), type: "video/" + self.currentFile.ext}
+			],
+			tracks: [],
+			theme: "lib/videogular-themes-default/videogular.css",
+		};
 
         Main.home(function(res) {
             self.user = res.userid;
@@ -124,24 +131,6 @@ angular.module('EchoPlayApp')
             }, function () {
                 $rootScope.error = 'Failed to delete';
             });
-        }
-    }])
-
-    .controller('MediaCtrl', ['$sce', '$rootScope', '$location', function($sce, $rootScope, $location) {
-        var self = this;
-
-        if (!$rootScope.currentFile) {
-            $location.path('/');
-        } else {
-            self.currentFile = $rootScope.currentFile;
-            $rootScope.currentFile = null;
-            self.config = {
-    			sources: [
-    				{src: $sce.trustAsResourceUrl(self.currentFile.url), type: "video/" + self.currentFile.ext}
-    			],
-    			tracks: [],
-    			theme: "lib/videogular-themes-default/videogular.css",
-    		};
         }
     }])
 
