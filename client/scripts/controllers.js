@@ -110,7 +110,7 @@ angular.module('EchoPlayApp')
             self.selected = angular.isNumber(file) ? self.files[file] : file;
             self.media = {
     			sources: [
-    				{src: $sce.trustAsResourceUrl(self.currentFile.url), type: "video/" + self.currentFile.ext}
+    				{src: $sce.trustAsResourceUrl(file.url), type: "video/" + file.ext}
     			],
     			tracks: [],
     			theme: "lib/videogular-themes-default/videogular.css",
