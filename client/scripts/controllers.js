@@ -119,7 +119,7 @@ angular.module('EchoPlayApp')
                 controller: self,
                 templateUrl: 'templates/play.html',
                 parent: angular.element(document.body),
-                targetEvent: ev,
+                // targetEvent: ev,
                 clickOutsideToClose: true
             });
         }
