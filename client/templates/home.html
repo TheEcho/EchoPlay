@@ -1,21 +1,37 @@
-<div class="row" ng-controller="HomeCtrl">
-    <div class="container">
-      <div class="page-header">
-          <h1>Echo Play</h1>
-      </div>
-    </div>
-
-    <hr>
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Your Files</h4>
-            <table ng-table="tableParams" class="table table-hover" id="fileList" show-filter="false">
-                <tr ng-repeat="file in $data">
-                    <td data-title="" class="text-center"><button class="btn btn-warning glyphicon glyphicon-play" ng-click="playFile(file)"></td>
-                    <td data-title="'Fichier'" class="text-center">{{ file.name }}</td>
-                    <td data-title="" class="text-center"><button class="btn btn-warning glyphicon glyphicon-trash" ng-click="deleteFile(file)"></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div flex layout="row" ng-controller="HomeCtrl as hCtrl">
+    <md-sidenav  ng-click="hCtrl.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+        <md-list>
+            <md-list-item>
+                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : it === hCtrl.selected }">
+                    <md-icon md-font-icon="icon-folder" class="avatar"></md-icon>
+                    Tous vos fichiers
+                </md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : it === hCtrl.selected }">
+                    <md-icon md-font-icon="icon-movie" class="avatar"></md-icon>
+                    Fichier vidéo
+                </md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : it === hCtrl.selected }">
+                    <md-icon md-font-icon="icon-music_note" class="avatar"></md-icon>
+                    Fichier audio
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+    <md-content flex id="content">
+        <md-icon md-svg-icon="{{hCtrl.selected.avatar}}" class="avatar"></md-icon>
+        <h1>Echo Play - Cloud Entertainment</h1>
+        <h1>{{hCtrl.description}}</h1>
+        <md-list>
+            <md-list-item ng-repeat="file in hCtrl.files">
+                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : file === hCtrl.selected }">
+                    <md-icon md-svg-icon="{{file.icon}}" class="avatar"></md-icon>
+                    {{file.name}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
 </div>

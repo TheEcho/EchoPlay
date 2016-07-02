@@ -1,57 +1,29 @@
-<div class="container">
-  <div class="page-header">
-      <h1>Création de votre espace client</h1>
-  </div>
-</div>
-
-<div class="container">
-    <!-- <div class="alert alert-error"><b>Erreur :</b> nom d'utilisateur ou mot de passe incorrect.</div> -->
-</div>
-
-<hr>
-<div class="container">
-    <form class="form-horizontal" role="form" ng-submit="signup()">
-
-        <div class="form-group">
-            <label for="mail" class="col-md-4 control-label">E-mail </label>
-            <div class="col-md-4">
-                <input type="email" class="form-control input-md" name="mail" id="mail" ng-model="mail" placeholder="Adresse e-mail">
-            </div>
+<div ng-controller="MainCtrl as mCtrl" layout="column" ng-cloak class="md-inline-form">
+    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+        <div>
+            <md-input-container>
+                <label>E-mail</label>
+                <input ng-model="mCtrl.mail">
+            </md-input-container>
+            <md-input-container>
+                <label>Mot de passe</label>
+                <input type="password" ng-model="mCtrl.firstPassword">
+            </md-input-container>
+            <md-input-container>
+                <label>Retaper le mot de passe</label>
+                <input type="password" ng-model="mCtrl.secondPassword">
+            </md-input-container>
+            <md-input-container>
+                <label>Prénom</label>
+                <input ng-model="mCtrl.firstname">
+            </md-input-container>
+            <md-input-container>
+                <label>Nom</label>
+                <input ng-model="mCtrl.lastname">
+            </md-input-container>
         </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="password">Mot de passe </label>
-            <div class="col-md-4">
-                <input type="password" class="form-control input-md" id="firstPassword" name="firstPassword" placeholder="Mot de passe" ng-model="firstPassword">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="password">Retaper votre mot de passe </label>
-            <div class="col-md-4">
-                <input type="password" class="form-control input-md" id="secondPassword" name="secondPassword" placeholder="Mot de passe" ng-model="secondPassword">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="firstname" class="col-md-4 control-label">Prénom </label>
-            <div class="col-md-4">
-                <input type="text" class="form-control input-md" name="firstname" id="firstname" ng-model="firstname" placeholder="Prénom">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="lastname" class="col-md-4 control-label">Nom </label>
-            <div class="col-md-4">
-                <input type="text" class="form-control input-md" name="lastname" id="lastname" ng-model="lastname" placeholder="Nom">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-12" style="text-align: center">
-                <button type="submit" class="btn btn-large btn-warning">Créer mon espace client</button>
-            </div>
-        </div>
-
-    </form>
+        <md-button ng-click="mCtrl.signup" ng-class="md-raised md-primary">
+          Créer mon espace
+        </md-button>
+    </md-content>
 </div>

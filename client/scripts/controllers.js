@@ -3,14 +3,26 @@
 /* Controllers */
 
 angular.module('EchoPlayApp')
-    .controller('MainCtrl', ['$rootScope', '$scope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $scope, $location, $localStorage, $route, Main) {
-        if ($localStorage.token) $rootScope.isLogged = true;
-        else $rootScope.isLogged = false;
+    .controller('MainCtrl', ['$rootScope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $location, $localStorage, $route, Main) {
+        var self = this;
 
-        $scope.signin = function() {
+        self.home           = home;
+        self.signin         = signin;
+        self.signup         = signup;
+        self.logout         = logout;
+        $rootScope.isLogged = $localStorage.token ? true : false;
+
+        function home() {
+            Main.home(function(res) {
+            }, function() {
+                $rootScope.error = 'Failed to fetch details';
+            });
+        };
+
+        function signin() {
             var formData = {
-                mail: $scope.mail,
-                password: $scope.password
+                mail: self.mail,
+                password: self.password
             }
 
             Main.signin(formData, function(res) {
@@ -22,13 +34,13 @@ angular.module('EchoPlayApp')
             });
         };
 
-        $scope.signup = function() {
+        function signup() {
             var formData = {
-                mail: $scope.mail,
-                firstPassword: $scope.firstPassword,
-                secondPassword: $scope.secondPassword,
-                firstname: $scope.firstname,
-                lastname: $scope.lastname
+                mail: self.mail,
+                firstPassword: self.firstPassword,
+                secondPassword: self.secondPassword,
+                firstname: self.firstname,
+                lastname: self.lastname
             }
 
             Main.save(formData, function(res) {
@@ -40,14 +52,7 @@ angular.module('EchoPlayApp')
             });
         };
 
-        $scope.home = function() {
-            Main.home(function(res) {
-            }, function() {
-                $rootScope.error = 'Failed to fetch details';
-            });
-        };
-
-        $scope.logout = function() {
+        function logout() {
             Main.logout(function() {
                 $rootScope.isLogged = false;
                 $location.path('/');
@@ -58,44 +63,52 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$location', '$route', 'NgTableParams', 'Main', function($rootScope, $scope, $location, $route, NgTableParams, Main) {
+    .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', 'Main', function($rootScope, , $mdSidenav, $location, $route, Main) {
+        var self = this;
+
+        self.selected      = null;
+        self.files         = [ ];
+        self.user          = null;
+        self.selectFile    = selectFile;
+        self.toggleSidebar = toggleSideList;
+        self.playFile      = playFile;
+        self.deleteFile    = deleteFile;
+
         Main.home(function(res) {
-            $scope.data = [];
-            $scope.userid = res.userid;
+            self.user = res.userid;
             for (var i = 0; i < res.data.length; i ++) {
                 var file = {
                     id: res.data[i]._id,
                     name: res.data[i].name,
                     ext: res.data[i].ext,
-                    url: '/media/' + res.userid + '/' + res.data[i].name,
+                    url: '/media/' + self.user + '/' + res.data[i].name,
                 };
-                $scope.data.push(file);
+                self.files.push(file);
             }
-            $scope.tableParams = new NgTableParams({
-                count: 20
-            }, {
-                counts: [],
-                dataset: $scope.data
-            });
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
 
-        $scope.playFile = function (file) {
+        function toggleSideList() {
+          $mdSidenav('left').toggle();
+        }
+
+        function selectFile (file) {
+          self.selected = angular.isNumber(file) ? self.files[file] : file;
+        }
+
+        function playFile (file) {
             $rootScope.currentFile = file;
             $location.path('/play');
         }
 
-        $scope.deleteFile = function (file) {
+        function deleteFile (file) {
             var formData = {
                 id: file.id,
                 name: file.name
             }
 
             Main.delete(formData, function (res) {
-                var index = _.indexOf($scope.data, file);
-                $scope.data.splice(index, 1);
-                $scope.tableParams.reload();
             }, function () {
                 $rootScope.error = 'Failed to delete';
             });
@@ -103,13 +116,16 @@ angular.module('EchoPlayApp')
     }])
 
     .controller('MediaCtrl', ['$sce', '$rootScope', '$location', function($sce, $rootScope, $location) {
+        var self = this;
+
         if (!$rootScope.currentFile) {
             $location.path('/');
         } else {
-            this.currentFile = $rootScope.currentFile;
-            this.config = {
+            self.currentFile = $rootScope.currentFile;
+            $rootScope.currentFile = null;
+            self.config = {
     			sources: [
-    				{src: $sce.trustAsResourceUrl(this.currentFile.url), type: "video/" + this.currentFile.ext}
+    				{src: $sce.trustAsResourceUrl(self.currentFile.url), type: "video/" + self.currentFile.ext}
     			],
     			tracks: [],
     			theme: "lib/videogular-themes-default/videogular.css",
@@ -117,9 +133,10 @@ angular.module('EchoPlayApp')
         }
     }])
 
-    .controller('UploadCtrl', ['$scope', '$localStorage', '$route', 'NgTableParams', 'Main', 'FileUploader', function($scope, $localStorage, $route, NgTableParams, Main, FileUploader) {
+    .controller('UploadCtrl', ['$localStorage', '$route', 'Main', 'FileUploader', function($localStorage, $route, Main, FileUploader) {
+        var self = this;
 
-        var uploader = $scope.uploader = new FileUploader({
+        var uploader = self.uploader = new FileUploader({
             headers : {
                 Authorization: 'EchoPlay ' + $localStorage.token
             },
@@ -127,12 +144,6 @@ angular.module('EchoPlayApp')
         });
 
         uploader.onAfterAddingFile = function(fileItem) {
-            $scope.data = uploader.queue;
-            $scope.tableParams = new NgTableParams({
-                count: 20
-            }, {
-                counts: [],
-                dataset: $scope.data
-            });
+            self.files = uploader.queue;
         };
     }]);
