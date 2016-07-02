@@ -7,6 +7,13 @@
                     {{type.name}}
                 </md-button>
             </md-list-item>
+            <div flex/>
+            <md-list-item>
+                <md-button ng-click="mCtrl.logout()">
+                    <md-icon aria-label="input" class="material-icons">input</md-icon>
+                    Logout
+                </md-button>
+            </md-list-item>
         </md-list>
     </md-sidenav>
     <md-content flex id="content">
@@ -16,9 +23,7 @@
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files" layout="row">
                 <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
-                <md-button ng-click="hCtrl.selectFile(file)">
-                    {{file.name}}
-                </md-button>
+                <md-button ng-click="hCtrl.selectFile(file)">{{file.name}}</md-button>
                 <md-button ng-click="hCtrl.downloadFile(file)">
                     <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                 </md-button>
