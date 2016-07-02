@@ -66,7 +66,8 @@ angular.module('EchoPlayApp')
     .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', 'Main', function($rootScope, $mdSidenav, $location, $route, Main) {
         var self = this;
 
-        self.selected      = null;
+        self.selectedType  = null;
+        self.selectedFile  = null;
         self.files         = [ ];
         self.types         = [
             {name: 'Tous les fichier', icon: 'icon-folder'},
