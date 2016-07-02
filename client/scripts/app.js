@@ -14,6 +14,12 @@ angular.module('EchoPlayApp',
         'com.2fdevs.videogular.plugins.poster'
     ])
 
+    .config(function($mdThemingProvider) {
+            $mdThemingProvider.theme('default')
+                .primaryPalette('orange')
+                .accentPalette('grey');
+    })
+
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider.
             when('/', {

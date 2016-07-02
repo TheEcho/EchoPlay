@@ -70,10 +70,10 @@ angular.module('EchoPlayApp')
         self.selectedFile  = null;
         self.files         = [ ];
         self.types         = [
-            {name: 'Tous les fichier', icon: 'icon-folder'},
-            {name: 'Vidéo', icon: 'icon-movie'},
-            {name: 'Audio', icon: 'icon-music_note'},
-            {name: 'Image', icon: 'icon-image'}
+            {name: 'Tous les fichier', icon: 'folder'},
+            {name: 'Vidéo', icon: 'movie'},
+            {name: 'Audio', icon: 'music_note'},
+            {name: 'Image', icon: 'image'}
         ]
         self.user          = null;
         self.selectFile    = selectFile;
