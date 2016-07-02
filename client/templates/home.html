@@ -1,14 +1,14 @@
 <div flex layout="row" ng-controller="HomeCtrl as hCtrl">
     <md-sidenav  ng-click="hCtrl.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
         <md-list>
-            <md-list-item ng-repeat="type in hCtrl.types" layout="column" layout-align="start stretch">
+            <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
                     {{type.name}}
                 </md-button>
             </md-list-item>
-            <md-list-item>
-                <md-button ng-click="mCtrl.logout()" layout="column" layout-align="end stretch">
+            <md-list-item ng-style="'position': 'relative', 'bottom': '0px'">
+                <md-button ng-click="mCtrl.logout()">
                     <md-icon aria-label="input" class="material-icons">input</md-icon>
                     Logout
                 </md-button>
