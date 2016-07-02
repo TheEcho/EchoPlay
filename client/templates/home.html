@@ -1,22 +1,10 @@
 <div flex layout="row" ng-controller="HomeCtrl as hCtrl">
     <md-sidenav  ng-click="hCtrl.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
         <md-list>
-            <md-list-item>
-                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : it === hCtrl.selected }">
-                    <md-icon md-font-icon="icon-folder" class="avatar"></md-icon>
-                    Tous vos fichiers
-                </md-button>
-            </md-list-item>
-            <md-list-item>
-                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : it === hCtrl.selected }">
-                    <md-icon md-font-icon="icon-movie" class="avatar"></md-icon>
-                    Fichier vidéo
-                </md-button>
-            </md-list-item>
-            <md-list-item>
-                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : it === hCtrl.selected }">
-                    <md-icon md-font-icon="icon-music_note" class="avatar"></md-icon>
-                    Fichier audio
+            <md-list-item ng-repeat="type in hCtrl.types">
+                <md-button ng-click="" ng-class="{'selected' : type === hCtrl.selected }">
+                    <md-icon md-font-icon="{{type.icon}}" class="avatar"></md-icon>
+                    {{type.name}}
                 </md-button>
             </md-list-item>
         </md-list>
@@ -27,7 +15,7 @@
         <h1>{{hCtrl.description}}</h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-button ng-click="hCtrl.selectUser(it)" ng-class="{'selected' : file === hCtrl.selected }">
+                <md-button ng-click="hCtrl.selectFile(file)" ng-class="{'selected' : file === hCtrl.selected }">
                     <md-icon md-svg-icon="{{file.icon}}" class="avatar"></md-icon>
                     {{file.name}}
                 </md-button>

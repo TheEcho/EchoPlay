@@ -68,6 +68,12 @@ angular.module('EchoPlayApp')
 
         self.selected      = null;
         self.files         = [ ];
+        self.types         = [
+            {name: 'Tous les fichier', icon: 'icon-folder'},
+            {name: 'Vidéo', icon: 'icon-movie'},
+            {name: 'Audio', icon: 'icon-music_note'},
+            {name: 'Image', icon: 'icon-image'}
+        ]
         self.user          = null;
         self.selectFile    = selectFile;
         self.toggleSidebar = toggleSideList;
@@ -85,6 +91,7 @@ angular.module('EchoPlayApp')
                 };
                 self.files.push(file);
             }
+            self.selected = files[0];
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
@@ -93,8 +100,8 @@ angular.module('EchoPlayApp')
           $mdSidenav('left').toggle();
         }
 
-        function selectFile (file) {
-          self.selected = angular.isNumber(file) ? self.files[file] : file;
+        function selectType (type) {
+          self.selected = angular.isNumber(type) ? self.types[type] : type;
         }
 
         function playFile (file) {
