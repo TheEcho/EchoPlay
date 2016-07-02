@@ -1,6 +1,13 @@
 <div ng-controller="MainCtrl as mCtrl" layout="column" ng-cloak class="md-inline-form">
     <md-content layout-gt-sm="row" layout-padding>
         <div>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button>{{title1}}</md-button>
+                <md-button md-no-ink class="md-primary">Primary (md-noink)</md-button>
+                <md-button ng-disabled="true" class="md-primary">Disabled</md-button>
+                <md-button class="md-warn">{{title4}}</md-button>
+                <div class="label">Flat</div>
+            </section>
             <md-input-container>
                 <label>E-mail</label>
                 <input ng-model="mCtrl.mail">
