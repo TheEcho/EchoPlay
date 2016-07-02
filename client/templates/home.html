@@ -3,7 +3,7 @@
         <md-list>
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
-                    <md-icon md-font-icon="{{type.icon}}" class="avatar"></md-icon>
+                    <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
                     {{type.name}}
                 </md-button>
             </md-list-item>
@@ -16,7 +16,7 @@
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
                 <md-button ng-click="hCtrl.selectFile(file)" ng-class="{'selected' : file === hCtrl.selectedFile }">
-                    <md-icon md-font-icon="{{file.icon}}" class="avatar"></md-icon>
+                    <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                     {{file.name}}
                 </md-button>
             </md-list-item>

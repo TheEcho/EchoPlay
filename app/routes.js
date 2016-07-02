@@ -28,6 +28,7 @@ module.exports = function (app) {
                 } else {
                     res.json({
                         success: true,
+                        user: user,
                         token: user.token
                     });
                 }
@@ -64,7 +65,8 @@ module.exports = function (app) {
                         user.save(function (err, user1) {
                             res.json({
                                 success: true,
-                                token: user1.token,
+                                user: user,
+                                token: user1.token
                             });
                         });
                     })

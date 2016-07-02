@@ -29,8 +29,8 @@
                     <span>Echo Play - Cloud Entertainment</span>
                 </h2>
                 <span flex></span>
-                <md-button class="md-icon-button" ng-href="#/signin" aria-label="Mon compte">
-                    <md-icon aria-label="Menu" class="material-icons">account_circle</md-icon>
+                <md-button ng-if="!USER" class="md-icon-button" ng-href="#/signin" aria-label="Connexion">
+                    <md-icon aria-label="Connexion" class="material-icons">account_circle</md-icon>
                 </md-button>
             </div>
         </md-toolbar>
