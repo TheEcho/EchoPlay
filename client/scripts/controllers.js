@@ -75,7 +75,7 @@ angular.module('EchoPlayApp')
             {name: 'Image', icon: 'image'}
         ]
         self.user          = null;
-        self.selectFile    = selectFile;
+        self.playFile      = playFile;
         self.toggleSidebar = toggleSideList;
         self.playFile      = playFile;
         self.deleteFile    = deleteFile;
