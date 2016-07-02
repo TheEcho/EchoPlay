@@ -62,7 +62,7 @@ angular.module('EchoPlayApp')
         };
     }])
 
-    .controller('HomeCtrl', ['$rootScope', '$mdSidenav', '$location', '$route', '$sce', 'Main', function($rootScope, $mdSidenav, $location, $route, $sce, Main) {
+    .controller('HomeCtrl', ['$rootScope', '$mdDialog', '$mdSidenav', '$location', '$route', '$sce', 'Main', function($rootScope, $mdDialog, $mdSidenav, $location, $route, $sce, Main) {
         var self = this;
 
         self.selectedType  = null;
@@ -112,13 +112,22 @@ angular.module('EchoPlayApp')
           self.selected = angular.isNumber(type) ? self.types[type] : type;
         }
 
-        function selectFile (file) {
-          self.selected = angular.isNumber(file) ? self.files[file] : file;
-        }
-
-        function playFile (file) {
-            $rootScope.currentFile = file;
-            $location.path('/play');
+        function playFile (ev, file) {
+            self.selected = angular.isNumber(file) ? self.files[file] : file;
+            self.media = {
+    			sources: [
+    				{src: $sce.trustAsResourceUrl(self.currentFile.url), type: "video/" + self.currentFile.ext}
+    			],
+    			tracks: [],
+    			theme: "lib/videogular-themes-default/videogular.css",
+    		};
+            $mdDialog.show({
+                controller: HomeCtrl,
+                templateUrl: 'dialog1.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true
+            });
         }
 
         function deleteFile (file) {

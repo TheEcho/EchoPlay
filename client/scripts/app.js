@@ -26,10 +26,6 @@ angular.module('EchoPlayApp',
                 templateUrl: 'templates/home.html',
                 controller: 'MainCtrl'
             }).
-            when('/play', {
-                templateUrl: 'templates/play.html',
-                controller: 'MainCtrl'
-            }).
             when('/upload', {
                 templateUrl: 'templates/upload.html',
                 controller: 'MainCtrl'
