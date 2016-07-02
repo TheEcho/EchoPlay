@@ -16,6 +16,22 @@
             [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
               display: none !important;
             }
+            @font-face {
+                font-family:"icomoon";
+                src:url("https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot");
+                font-weight:normal;
+                font-style:normal;
+            }
+            @font-face {
+                font-family: 'icomoon';
+                src:url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot?-cmq1um');
+                src:url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot?#iefix-cmq1um') format('embedded-opentype'),
+                url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.woff?-cmq1um') format('woff'),
+                url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.ttf?-cmq1um') format('truetype'),
+                url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.svg?-cmq1um#icomoon') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
         </style>
     </head>
 
@@ -30,7 +46,7 @@
                 </h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-href="#/signin">
-                    <md-icon md-svg-icon="/client/static/img/account.svg" style="color: #FFFFFF;" aria-label="Mon Compte"></md-icon>
+                    <md-icon md-font-icon="account_circle" style="color: #FFFFFF;"/>
                 </md-button>
             </div>
         </md-toolbar>
