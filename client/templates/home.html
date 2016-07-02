@@ -10,14 +10,17 @@
         </md-list>
     </md-sidenav>
     <md-content flex id="content">
-        <md-icon md-font-icon="{{hCtrl.selectedType.icon}}" class="avatar"></md-icon>
+        <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons">{{hCtrl.selectedType.icon}}</md-icon>
         <h1>Echo Play - Cloud Entertainment</h1>
         <h1>{{hCtrl.description}}</h1>
         <md-list>
-            <md-list-item ng-repeat="file in hCtrl.files">
-                <md-button ng-click="hCtrl.selectFile(file)" ng-class="{'selected' : file === hCtrl.selectedFile }">
-                    <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+            <md-list-item ng-repeat="file in hCtrl.files" layout="row">
+                <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                <md-button ng-click="hCtrl.selectFile(file)">
                     {{file.name}}
+                </md-button>
+                <md-button ng-click="hCtrl.downloadFile(file)">
+                    <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                 </md-button>
             </md-list-item>
         </md-list>
