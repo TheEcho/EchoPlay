@@ -103,11 +103,11 @@ angular.module('EchoPlayApp')
         }
 
         function selectType (type) {
-          self.selected = angular.isNumber(type) ? self.types[type] : type;
+          self.selectedType = angular.isNumber(type) ? self.types[type] : type;
         }
 
         function playFile (ev, file) {
-            self.selected = angular.isNumber(file) ? self.files[file] : file;
+            self.selectedFile = angular.isNumber(file) ? self.files[file] : file;
             self.media = {
     			sources: [
     				{src: $sce.trustAsResourceUrl(file.url), type: "video/" + file.ext}
