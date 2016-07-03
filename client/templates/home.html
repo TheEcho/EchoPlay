@@ -4,7 +4,7 @@
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
-                    <h4>{{type.name}}</h4>
+                    <h5>{{type.name}}</h5>
                 </md-button>
             </md-list-item>
         </md-list>
@@ -51,7 +51,6 @@
         		</vg-controls>
                 <vg-buffering></vg-buffering>
         		<vg-overlay-play></vg-overlay-play>
-                <vg-poster vg-url='meida.plugins.poster'></vg-poster>
         	</videogular>
         </div>
     </md-content>
