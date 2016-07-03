@@ -94,6 +94,16 @@ angular.module('EchoPlayApp')
                 self.files.push(file);
             }
             self.selectedFile = self.files[0];
+            self.media = {
+                sources: [
+                    {src: $sce.trustAsResourceUrl(self.files[0].url), type: "video/" + self.files[0].ext}
+                ],
+                tracks: [],
+                theme: "lib/videogular-themes-default/videogular.css",
+                plugins: {
+    				poster: "http://www.videogular.com/assets/images/videogular.png"
+    			}
+            };
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
@@ -117,17 +127,6 @@ angular.module('EchoPlayApp')
                 clickOutsideToClose: true
             });
         }
-
-        self.media = {
-            sources: [
-                {src: $sce.trustAsResourceUrl(self.files[0].url), type: "video/" + self.files[0].ext}
-            ],
-            tracks: [],
-            theme: "lib/videogular-themes-default/videogular.css",
-            plugins: {
-				poster: "http://www.videogular.com/assets/images/videogular.png"
-			}
-        };
 
         function deleteFile (file) {
             var formData = {
