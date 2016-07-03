@@ -118,7 +118,7 @@ angular.module('EchoPlayApp')
             });
         }
 
-        $scope.media = {
+        self.media = {
             sources: [
                 {src: $sce.trustAsResourceUrl(self.files[0].url), type: "video/" + self.files[0].ext}
             ],
