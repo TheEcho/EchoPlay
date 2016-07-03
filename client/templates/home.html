@@ -17,7 +17,6 @@
     <md-content flex id="content">
         <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons">{{hCtrl.selectedType.icon}}</md-icon>
         <h1>Echo Play - Cloud Entertainment</h1>
-        <h1>{{hCtrl.description}}</h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
                 <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
@@ -31,27 +30,27 @@
                 </md-whiteframe>
             </md-list-item>
         </md-list>
-        <div class="videogular-container">
-            <videogular vg-theme="hCtrl.media.theme">
-        		<vg-media vg-src="hCtrl.media.sources"
-        				vg-tracks="hCtrl.media.tracks">
-        		</vg-media>
-        		<vg-controls>
-        			<vg-play-pause-button></vg-play-pause-button>
-        			<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-        			<vg-scrub-bar>
-        				<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-        			</vg-scrub-bar>
-        			<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-        			<vg-volume>
-        				<vg-mute-button></vg-mute-button>
-        				<vg-volume-bar></vg-volume-bar>
-        			</vg-volume>
-        			<vg-fullscreen-button></vg-fullscreen-button>
-        		</vg-controls>
-                <vg-buffering></vg-buffering>
-        		<vg-overlay-play></vg-overlay-play>
-        	</videogular>
-        </div>
     </md-content>
+    <div class="videogular-container">
+        <videogular vg-theme="hCtrl.media.theme">
+            <vg-media vg-src="hCtrl.media.sources"
+                    vg-tracks="hCtrl.media.tracks">
+            </vg-media>
+            <vg-controls>
+                <vg-play-pause-button></vg-play-pause-button>
+                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                <vg-scrub-bar>
+                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                </vg-scrub-bar>
+                <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                <vg-volume>
+                    <vg-mute-button></vg-mute-button>
+                    <vg-volume-bar></vg-volume-bar>
+                </vg-volume>
+                <vg-fullscreen-button></vg-fullscreen-button>
+            </vg-controls>
+            <vg-buffering></vg-buffering>
+            <vg-overlay-play></vg-overlay-play>
+        </videogular>
+    </div>
 </div>

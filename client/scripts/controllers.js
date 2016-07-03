@@ -65,8 +65,6 @@ angular.module('EchoPlayApp')
     .controller('HomeCtrl', ['$rootScope', '$mdDialog', '$mdSidenav', '$location', '$route', '$sce', 'Main', function($rootScope, $mdDialog, $mdSidenav, $location, $route, $sce, Main) {
         var self = this;
 
-        self.selectedType  = null;
-        self.selectedFile  = null;
         self.files         = [ ];
         self.types         = [
             {name: 'Tous les fichier', icon: 'folder'},
@@ -76,6 +74,8 @@ angular.module('EchoPlayApp')
         ]
         self.user          = null;
         self.media         = null;
+        self.selectedType  = self.types[0];
+        self.selectedFile  = null;
         self.playFile      = playFile;
         self.toggleSidebar = toggleSideList;
         self.playFile      = playFile;
