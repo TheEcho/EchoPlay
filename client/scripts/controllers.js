@@ -118,6 +118,17 @@ angular.module('EchoPlayApp')
             });
         }
 
+        $scope.media = {
+            sources: [
+                {src: $sce.trustAsResourceUrl(self.files[0].url), type: "video/" + self.files[0].ext}
+            ],
+            tracks: [],
+            theme: "lib/videogular-themes-default/videogular.css",
+            plugins: {
+				poster: "http://www.videogular.com/assets/images/videogular.png"
+			}
+        };
+
         function deleteFile (file) {
             var formData = {
                 id: file.id,
