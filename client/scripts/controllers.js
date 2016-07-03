@@ -155,14 +155,8 @@ angular.module('EchoPlayApp')
             ],
             tracks: [],
             theme: "lib/videogular-themes-default/videogular.css",
-        };
-        $scope.hide = function() {
-            $mdDialog.hide();
-        };
-        $scope.cancel = function() {
-            $mdDialog.cancel();
-        };
-        $scope.answer = function(answer) {
-            $mdDialog.hide(answer);
+            plugins: {
+				poster: "http://www.videogular.com/assets/images/videogular.png"
+			}
         };
     }
