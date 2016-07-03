@@ -25,7 +25,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.signin(formData, function(res) {
-                $rootScope.USER = res.user;
+                $rootScope.cUser = res.user;
                 $localStorage.token = res.token;
                 $location.path('/');
             }, function() {
@@ -43,7 +43,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.save(formData, function(res) {
-                $rootScope.USER = res.user;
+                $rootScope.cUser = res.user;
                 $localStorage.token = res.token;
                 $location.path('/');
             }, function() {
@@ -53,7 +53,7 @@ angular.module('EchoPlayApp')
 
         function logout() {
             Main.logout(function() {
-                $rootScope.USER = null;
+                $rootScope.cUser = null;
                 $location.path('/');
                 $route.reload();
             }, function() {
@@ -118,8 +118,6 @@ angular.module('EchoPlayApp')
             $mdDialog.show({
                 controller: 'HomeCtrl',
                 templateUrl: 'templates/play.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
                 clickOutsideToClose: true
             });
         }
