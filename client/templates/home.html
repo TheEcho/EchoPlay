@@ -20,11 +20,13 @@
         <h1>{{hCtrl.description}}</h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
-                <md-button ng-click="hCtrl.playFile($event, file)">{{file.name}}</md-button>
-                <md-button ng-click="hCtrl.downloadFile(file)">
-                    <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
-                </md-button>
+                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="'background': '#eee', 'margin':' 30px', 'height': '50px'">
+                    <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                    <md-button ng-click="hCtrl.playFile($event, file)">{{file.name}}</md-button>
+                    <md-button ng-click="hCtrl.downloadFile(file)">
+                        <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
+                    </md-button>
+                </md-whiteframe>
             </md-list-item>
         </md-list>
     </md-content>
