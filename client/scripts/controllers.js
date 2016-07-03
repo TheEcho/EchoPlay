@@ -108,15 +108,9 @@ angular.module('EchoPlayApp')
 
         function playFile (ev, file) {
             self.selectedFile = angular.isNumber(file) ? self.files[file] : file;
-            self.media = {
-    			sources: [
-    				{src: $sce.trustAsResourceUrl(file.url), type: "video/" + file.ext}
-    			],
-    			tracks: [],
-    			theme: "lib/videogular-themes-default/videogular.css",
-    		};
+            $rootScope.File = file;
             $mdDialog.show({
-                controller: 'HomeCtrl',
+                controller: MediaCtrl,
                 templateUrl: 'templates/play.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
@@ -151,3 +145,24 @@ angular.module('EchoPlayApp')
             self.files = uploader.queue;
         };
     }]);
+
+    function MediaCtrl($rootScope, $scope, $mdDialog) {
+        var self = this;
+
+        self.media = {
+            sources: [
+                {src: $sce.trustAsResourceUrl($rootScope.File.url), type: "video/" + $rootScope.File.ext}
+            ],
+            tracks: [],
+            theme: "lib/videogular-themes-default/videogular.css",
+        };
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    }

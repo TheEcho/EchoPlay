@@ -20,19 +20,11 @@
         <h1>{{hCtrl.description}}</h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <section layout="row">
-                    <span>
-                        <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
-                    </span>
-                    <span>
-                        <md-button ng-click="hCtrl.playFile($event, file)" flex>{{file.name}}</md-button>
-                    </span>
-                    <span>
-                        <md-button ng-click="hCtrl.downloadFile(file)">
-                            <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
-                        </md-button>
-                    </span>
-                </section>
+                <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                <md-button ng-click="hCtrl.playFile($event, file)">{{file.name}}</md-button>
+                <md-button ng-click="hCtrl.downloadFile(file)">
+                    <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
+                </md-button>
             </md-list-item>
         </md-list>
     </md-content>
