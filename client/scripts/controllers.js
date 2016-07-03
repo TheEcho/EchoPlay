@@ -147,8 +147,11 @@ angular.module('EchoPlayApp')
     }]);
 
     function MediaCtrl($rootScope, $sce, $scope, $mdDialog) {
-        console.log($rootScope.File.url + ' : ext :' + $rootScope.File.ext);
         $scope.media = {
+            width: 740,
+            height: 380,
+            autoHide: false,
+            autoPlay: true,
             sources: [
                 {src: $sce.trustAsResourceUrl($rootScope.File.url), type: "video/" + $rootScope.File.ext}
             ],
