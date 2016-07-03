@@ -7,14 +7,12 @@
                     {{type.name}}
                 </md-button>
             </md-list-item>
-            <span flex></span>
-            <md-list-item>
-                <md-button ng-click="mCtrl.logout()">
-                    <md-icon aria-label="input" class="material-icons">input</md-icon>
-                    Logout
-                </md-button>
-            </md-list-item>
         </md-list>
+        <span flex></span>
+        <md-button ng-click="mCtrl.logout()">
+            <md-icon aria-label="input" class="material-icons">input</md-icon>
+            Logout
+        </md-button>
     </md-sidenav>
     <md-content flex id="content">
         <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons">{{hCtrl.selectedType.icon}}</md-icon>
