@@ -146,7 +146,7 @@ angular.module('EchoPlayApp')
         };
     }]);
 
-    function MediaCtrl($rootScope, $scope, $mdDialog) {
+    function MediaCtrl($rootScope, $sce, $scope, $mdDialog) {
         var self = this;
 
         self.media = {
