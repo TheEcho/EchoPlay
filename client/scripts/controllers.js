@@ -118,6 +118,8 @@ angular.module('EchoPlayApp')
             $mdDialog.show({
                 controller: 'HomeCtrl',
                 templateUrl: 'templates/play.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
                 clickOutsideToClose: true
             });
         }
