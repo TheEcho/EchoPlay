@@ -89,7 +89,7 @@ angular.module('EchoPlayApp')
                     name: res.data[i].name,
                     ext: res.data[i].ext,
                     url: '/media/' + self.user + '/' + res.data[i].name,
-                    icon: 'icon-image'
+                    icon: 'movie'
                 };
                 self.files.push(file);
             }
