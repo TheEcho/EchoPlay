@@ -4,7 +4,7 @@
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
-                    <h3>{{type.name}}</h3>
+                    <h4>{{type.name}}</h4>
                 </md-button>
             </md-list-item>
         </md-list>
@@ -20,12 +20,12 @@
         <h1>{{hCtrl.description}}</h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="'background': '#eee', 'margin':' 10px', 'height': '50px'">
+                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
                     <md-button ng-click="hCtrl.playFile($event, file)">
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
                     </md-button>
-                    <md-button ng-click="hCtrl.downloadFile(file)" ng-style="'position': 'relative', 'right': '10px'">
+                    <md-button ng-click="hCtrl.downloadFile(file)" ng-style="{'width': '20px','position': 'relative', 'right': '10px'}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
                 </md-whiteframe>
