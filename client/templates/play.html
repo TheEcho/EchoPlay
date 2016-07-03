@@ -1,9 +1,9 @@
-<md-dialog aria-label="MediaPlayer" ng-controller="MediaCtrl as hCtrl">
+<md-dialog aria-label="MediaPlayer">
     <md-dialog-content>
         <div class="videogular-container">
-            <videogular vg-theme="hCtrl.media.theme">
-        		<vg-media vg-src="hCtrl.media.sources"
-        				vg-tracks="hCtrl.media.tracks">
+            <videogular vg-theme="media.theme">
+        		<vg-media vg-src="media.sources"
+        				vg-tracks="media.tracks">
         		</vg-media>
         		<vg-controls>
         			<vg-play-pause-button></vg-play-pause-button>
@@ -20,6 +20,7 @@
         		</vg-controls>
                 <vg-buffering></vg-buffering>
         		<vg-overlay-play></vg-overlay-play>
+                <vg-poster vg-url='meida.plugins.poster'></vg-poster>
         	</videogular>
         </div>
     </md-dialog-content>
