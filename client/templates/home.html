@@ -4,7 +4,7 @@
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
-                    {{type.name}}
+                    <h3>{{type.name}}</h3>
                 </md-button>
             </md-list-item>
         </md-list>
@@ -25,7 +25,7 @@
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
                     </md-button>
-                    <md-button ng-click="hCtrl.downloadFile(file)" ng-style="'width': '20px','position': 'relative', 'right': '10px'">
+                    <md-button ng-click="hCtrl.downloadFile(file)" ng-style="'position': 'relative', 'right': '10px'">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
                 </md-whiteframe>
