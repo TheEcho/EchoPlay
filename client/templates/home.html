@@ -24,10 +24,14 @@
                     <span>
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                     </span>
-                    <md-button ng-click="hCtrl.playFile($event, file)" flex>{{file.name}}</md-button>
-                    <md-button ng-click="hCtrl.downloadFile(file)">
-                        <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
-                    </md-button>
+                    <span>
+                        <md-button ng-click="hCtrl.playFile($event, file)" flex>{{file.name}}</md-button>
+                    </span>
+                    <span>
+                        <md-button ng-click="hCtrl.downloadFile(file)">
+                            <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
+                        </md-button>
+                    </span>
                 </section>
             </md-list-item>
         </md-list>
