@@ -93,14 +93,9 @@ angular.module('EchoPlayApp')
                 };
                 self.files.push(file);
             }
-            self.selectedFile = self.files[0];
-            self.media = {
-                sources: [
-                    {src: $sce.trustAsResourceUrl(self.files[0].url), type: "video/" + self.files[0].ext}
-                ],
-                tracks: [],
-                theme: "lib/videogular-themes-default/videogular.css"
-            };
+            if (self.files.length > 0) {
+                self.selectedFile = self.files[0];
+            }
         }, function() {
             $rootScope.error = 'Failed to fetch details';
         });
