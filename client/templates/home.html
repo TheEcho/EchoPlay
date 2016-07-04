@@ -22,30 +22,37 @@
             Logout
         </md-button>
     </md-sidenav>
-    <md-content flex id="content">
-        <h1>
-            Echo Play - Cloud Entertainment
-        </h1>
-        <h2>
-            <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons" ng-style="{'font-size': '36px', 'height': '36px', 'margin': '20px'}">{{hCtrl.selectedType.icon}}</md-icon>
-            {{hCtrl.selectedType.name}}
-        </h2>
-        <md-list>
-            <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px', 'width': '80%'}">
-                    <md-button ng-click="hCtrl.playFile($event, file)">
-                        <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
-                        {{file.name}}
-                    </md-button>
-                    <span flex></span>
-                    <md-button download="{{file.name}}" ng-href="{{file.url}}">
-                        <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
-                    </md-button>
-                    <md-button ng-click="hCtrl.deleteFile(file)">
-                        <md-icon aria-label="delete" class="material-icons">delete</md-icon>
-                    </md-button>
-                </md-whiteframe>
-            </md-list-item>
-        </md-list>
+    <md-content flex layout="column">
+        <md-content layout-align="right">
+            <h1>
+                Echo Play - Cloud Entertainment
+            </h1>
+            <h2>
+                <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons" ng-style="{'font-size': '36px', 'height': '36px', 'margin': '20px'}">{{hCtrl.selectedType.icon}}</md-icon>
+                {{hCtrl.selectedType.name}}
+            </h2>
+        </md-content>
+        <br/>
+        <md-divider></md-divider>
+        <br/>
+        <md-content flex layout="row" layout-align="center">
+            <md-list flex="80">
+                <md-list-item ng-repeat="file in hCtrl.files">
+                    <md-whiteframe ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
+                        <md-button ng-click="hCtrl.playFile($event, file)">
+                            <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                            {{file.name}}
+                        </md-button>
+                        <span flex></span>
+                        <md-button download="{{file.name}}" ng-href="{{file.url}}">
+                            <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
+                        </md-button>
+                        <md-button ng-click="hCtrl.deleteFile(file)">
+                            <md-icon aria-label="delete" class="material-icons">delete</md-icon>
+                        </md-button>
+                    </md-whiteframe>
+                </md-list-item>
+            </md-list>
+        </md-content>
     </md-content>
 </div>
