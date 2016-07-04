@@ -27,8 +27,8 @@
         </md-button>
     </md-sidenav>
 
-    <div layout="column">
-        <md-content layout="column" class="md-padding">
+    <div flex layout="column">
+        <md-content flex layout="column" class="md-padding">
 
             <div layout="row" layout-align="start" ng-style="{'margin-left': '20px'}">
                 <div layout="column">
@@ -43,10 +43,10 @@
                 </div>
             </div>
 
-            <md-content layout="column" layout-align="start stretch">
+            <div layout="column" layout-align="start stretch">
                 <md-whiteframe ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin-left':' 40px', 'margin-right':' 40px', 'margin':' 10px'}" layout-align="start center">
                     <md-icon aria-label="{{file.icon}}" class="material-icons" ng-style="{'margin-left':' 40px'}">{{file.icon}}</md-icon>
-                    <span flex layout-align="center center">
+                    <span layout-align="center center">
                         <md-button flex ng-click="hCtrl.playFile($event, file)" ng-style="{'margin-left':' 40px'}">
                             <span flex>{{file.name}}</span>
                         </md-button>
@@ -62,7 +62,7 @@
                         </md-button>
                     </section>
                 </md-whiteframe>
-            </md-content>
+            </div>
 
         </md-content>
     </div>
