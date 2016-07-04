@@ -10,6 +10,7 @@ angular.module('EchoPlayApp')
         self.signin         = signin;
         self.signup         = signup;
         self.logout         = logout;
+        self.isLogged       = $localStorage.token ? true : false;
 
         function home() {
             Main.home(function(res) {
