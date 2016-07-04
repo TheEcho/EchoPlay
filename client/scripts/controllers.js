@@ -119,7 +119,6 @@ angular.module('EchoPlayApp')
                 if (self.files.length > 0) {
                     self.selectedFile = self.files[0];
                 }
-                $route.reload();
             }, function() {
                 $rootScope.error = 'Failed to fetch details';
             });
