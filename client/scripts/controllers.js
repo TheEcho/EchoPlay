@@ -26,7 +26,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.signin(formData, function(res) {
-                $rootScope.cUser = res.user;
+                self.isLogged = true;
                 $localStorage.token = res.token;
                 $location.path('/');
                 $route.reload();
@@ -45,7 +45,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.save(formData, function(res) {
-                $rootScope.cUser = res.user;
+                self.isLogged = true;
                 $localStorage.token = res.token;
                 $location.path('/');
                 $route.reload();
@@ -56,7 +56,7 @@ angular.module('EchoPlayApp')
 
         function logout() {
             Main.logout(function() {
-                $rootScope.cUser = null;
+                self.isLogged = false;
                 $location.path('/');
                 $route.reload();
             }, function() {
