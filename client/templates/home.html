@@ -38,10 +38,10 @@
                         {{file.name}}
                     </md-button>
                     <span flex></span>
-                    <md-button download="{{file.name}}" ng-href="{{file.url}}">
+                    <md-button download="{{file.name}}" ng-href="{{file.url}}" class="md-secondary">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
-                    <md-button ng-click="hCtrl.deleteFile(file)">
+                    <md-button ng-click="hCtrl.deleteFile(file)" class="md-secondary">
                         <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                     </md-button>
                 </md-whiteframe>
