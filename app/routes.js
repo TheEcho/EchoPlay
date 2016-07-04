@@ -180,6 +180,7 @@ module.exports = function (app) {
             File.remove({_id: req.body.id}, function (err) {
                 if (err) throw err;
                 fs.unlink(dir + req.body.name, function (err) {
+                    if (err) throw err;
                     res.json({
                         success: true,
                         data: "All files has been deleted successfuly"

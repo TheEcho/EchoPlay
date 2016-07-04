@@ -3,14 +3,14 @@
 /* Controllers */
 
 angular.module('EchoPlayApp')
-    .controller('MainCtrl', ['$rootScope', '$scope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $scope, $location, $localStorage, $route, Main) {
+    .controller('MainCtrl', ['$rootScope', '$location', '$localStorage', '$route', 'Main', function($rootScope, $location, $localStorage, $route, Main) {
         var self = this;
 
         self.home           = home;
         self.signin         = signin;
         self.signup         = signup;
         self.logout         = logout;
-        $scope.isLogged     = $localStorage.token ? true : false;
+        self.isLogged       = $localStorage.token ? true : false;
 
         function home() {
             Main.home(function(res) {
@@ -26,7 +26,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.signin(formData, function(res) {
-                $scope.isLogged = true;
+                self.isLogged = true;
                 $localStorage.token = res.token;
                 $location.path('/');
                 $route.reload();
@@ -45,7 +45,7 @@ angular.module('EchoPlayApp')
             }
 
             Main.save(formData, function(res) {
-                $scope.isLogged = true;
+                self.isLogged = true;
                 $localStorage.token = res.token;
                 $location.path('/');
                 $route.reload();
@@ -56,7 +56,7 @@ angular.module('EchoPlayApp')
 
         function logout() {
             Main.logout(function() {
-                $scope.isLogged = false;
+                self.isLogged = false;
                 $location.path('/');
                 $route.reload();
             }, function() {
