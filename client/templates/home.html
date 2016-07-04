@@ -47,10 +47,12 @@
 
         <md-content layout="column" layout-align="center">
             <md-whiteframe flex ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}" layout-align="start center">
-                <md-button flex ng-click="hCtrl.playFile($event, file)">
-                    <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
-                    <span>{{file.name}}</span>
-                </md-button>
+                <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                <span layout-align="center center">
+                    <md-button flex ng-click="hCtrl.playFile($event, file)">
+                        <span>{{file.name}}</span>
+                    </md-button>
+                </span>
                 <span layout-align="end center">
                     <md-button download="{{file.name}}" ng-href="{{file.url}}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
