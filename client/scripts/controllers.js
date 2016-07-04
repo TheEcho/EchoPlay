@@ -77,7 +77,6 @@ angular.module('EchoPlayApp')
         self.selectedType  = self.types[0];
         self.selectedFile  = null;
         self.playFile      = playFile;
-        self.toggleSidebar = toggleSideList;
         self.playFile      = playFile;
         self.deleteFile    = deleteFile;
 
