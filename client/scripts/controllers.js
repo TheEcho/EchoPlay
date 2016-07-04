@@ -29,6 +29,7 @@ angular.module('EchoPlayApp')
                 $rootScope.cUser = res.user;
                 $localStorage.token = res.token;
                 $location.path('/');
+                $route.reload();
             }, function() {
                 $rootScope.error = 'Failed to signin';
             });
@@ -47,6 +48,7 @@ angular.module('EchoPlayApp')
                 $rootScope.cUser = res.user;
                 $localStorage.token = res.token;
                 $location.path('/');
+                $route.reload();
             }, function() {
                 $rootScope.error = 'Failed to signup';
             });
