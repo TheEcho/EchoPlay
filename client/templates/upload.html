@@ -1,10 +1,13 @@
 <div layout="row" ng-controller="UploadCtrl as uCtrl">
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" layout="column">
+        <br/>
         <md-button ng-href="#/" class="md-raised md-primary">
             <md-icon aria-label="input" class="material-icons">cloud</md-icon>
             Home
         </md-button>
+        <br/>
         <md-divider></md-divider>
+        <br/>
         <input type="file" nv-file-select="" uploader="uCtrl.uploader" multiple  /><br/>
         <span flex></span>
         <md-button ng-click="mCtrl.logout()">
