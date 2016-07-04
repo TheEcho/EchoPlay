@@ -70,15 +70,13 @@ angular.module('EchoPlayApp')
 
         self.files         = [ ];
         self.types         = [
-            {name: 'Tous les fichier', icon: 'insert_drive_file'},
-            {name: 'Vidéo', icon: 'movie'},
+            {name: 'All Files', icon: 'insert_drive_file'},
+            {name: 'Video', icon: 'movie'},
             {name: 'Audio', icon: 'music_note'},
             {name: 'Image', icon: 'image'}
-        ]
+        ];
         self.user          = null;
-        self.media         = null;
         self.selectedType  = self.types[0];
-        self.selectedFile  = null;
         self.playFile      = playFile;
         self.selectType    = selectType;
         self.deleteFile    = deleteFile;
@@ -128,7 +126,6 @@ angular.module('EchoPlayApp')
         }
 
         function playFile (ev, file) {
-            self.selectedFile = angular.isNumber(file) ? self.files[file] : file;
             if (file.icon == 'movie') {
                 var ctrl = movieCtrl;
                 var template = 'templates/play_movie.html';

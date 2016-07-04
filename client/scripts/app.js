@@ -16,7 +16,7 @@ angular.module('EchoPlayApp',
 
     .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
-                .primaryPalette('orange')
+                .primaryPalette('blue')
                 .accentPalette('grey');
     })
 
