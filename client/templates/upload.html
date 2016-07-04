@@ -14,13 +14,13 @@
     <md-content flex id="content">
         <div nv-file-drop="" uploader="uCtrl.uploader" filters="queueLimit, customFilter">
             <h3>Upload queue</h3>
-            <p>Queue length: {{ uCtrl..queue.length }}</p>
+            <p>Queue length: {{ uCtrl.queue.length }}</p>
             <table ng-table="tableParams" class="table" id="fileList" show-filter="false">
                 <thead>
                     <tr>
                         <th width="50%">Name</th>
-                        <th ng-show="uCtrl..isHTML5">Size</th>
-                        <th ng-show="uCtrl..isHTML5">Progress</th>
+                        <th ng-show="uCtrl.isHTML5">Size</th>
+                        <th ng-show="uCtrl.isHTML5">Progress</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
