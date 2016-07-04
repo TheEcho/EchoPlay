@@ -27,7 +27,7 @@
     </md-sidenav>
 
 
-    <md-content layout="column">
+    <md-content flex layout="column">
 
         <md-content layout="row" layout-align="center">
             <md-content layout="column">
@@ -41,8 +41,8 @@
             </md-content>
         </md-content>
 
-        <md-content layout="row" layout-align="center">
-            <md-content flex layout="column" layout-align="center">
+        <md-content flex layout="row" layout-align="center">
+            <md-content layout="column" layout-align="center">
                 <md-whiteframe ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
                     <section layout-align="start center">
                         <md-button flex ng-click="hCtrl.playFile($event, file)">
