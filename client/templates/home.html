@@ -1,5 +1,5 @@
 <div layout="row" ng-controller="HomeCtrl as hCtrl">
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" ng-style="{'width': '30%'}">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
         <br/>
         <md-button ng-href="#/upload" class="md-raised md-primary">
             <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
@@ -22,7 +22,7 @@
             Logout
         </md-button>
     </md-sidenav>
-    <md-content flex id="content" layout-fill ng-style="{'width': '70%'}">
+    <md-content flex id="content" layout-fill ng-style="{'width': '150%'}">
         <h1>
             Echo Play - Cloud Entertainment
         </h1>
@@ -38,10 +38,10 @@
                         {{file.name}}
                     </md-button>
                     <span flex></span>
-                    <md-button download="{{file.name}}" ng-href="{{file.url}}" class="md-secondary">
+                    <md-button download="{{file.name}}" ng-href="{{file.url}}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
-                    <md-button ng-click="hCtrl.deleteFile(file)" class="md-secondary">
+                    <md-button ng-click="hCtrl.deleteFile(file)">
                         <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                     </md-button>
                 </md-whiteframe>
