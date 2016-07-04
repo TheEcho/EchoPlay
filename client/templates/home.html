@@ -52,14 +52,14 @@
                     </section>
                     <span flex></span>
                     <section layout-align="end center">
-                        <md-content>
+                        <section>
                             <md-button download="{{file.name}}" ng-href="{{file.url}}">
                                 <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                             </md-button>
                             <md-button ng-click="hCtrl.deleteFile(file)">
                                 <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                             </md-button>
-                        </md-content>
+                        </section>
                     </section>
                 </md-whiteframe>
             </md-content>
