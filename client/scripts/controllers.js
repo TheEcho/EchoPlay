@@ -205,6 +205,5 @@ angular.module('EchoPlayApp')
     }
 
     function imageCtrl($rootScope, $scope) {
-        console.log($rootScope.File.url);
         $scope.imageUrl = $rootScope.File.url;
     }
