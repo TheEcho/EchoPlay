@@ -1,32 +1,34 @@
 <div layout="row" ng-controller="HomeCtrl as hCtrl">
 
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
-        <br/>
+        <md-content layout-padding>
+            <br/>
 
-        <md-button ng-href="#/upload" class="md-raised md-primary">
-            <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
-            Upload
-        </md-button>
+            <md-button ng-href="#/upload" class="md-raised md-primary">
+                <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
+                Upload
+            </md-button>
 
-        <br/>
-        <md-divider></md-divider>
-        <br/>
+            <br/>
+            <md-divider></md-divider>
+            <br/>
 
-        <md-list layout="column">
-            <md-list-item ng-repeat="type in hCtrl.types">
-                <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
-                    <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
-                    {{type.name}}
-                </md-button>
-            </md-list-item>
-        </md-list>
+            <md-list layout="column">
+                <md-list-item ng-repeat="type in hCtrl.types">
+                    <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
+                        <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
+                        {{type.name}}
+                    </md-button>
+                </md-list-item>
+            </md-list>
 
-        <div flex></div>
+            <div flex></div>
 
-        <md-button ng-click="mCtrl.logout()">
-            <md-icon aria-label="input" class="material-icons">input</md-icon>
-            Logout
-        </md-button>
+            <md-button ng-click="mCtrl.logout()">
+                <md-icon aria-label="input" class="material-icons">input</md-icon>
+                Logout
+            </md-button>
+        </md-content>
     </md-sidenav>
 
     <div flex layout="column">
@@ -35,9 +37,6 @@
             <md-content layout="row" layout-align="start">
                 <span flex="5"></span>
                 <md-content flex layout="column">
-                    <h1>
-                        Echo Play - Cloud Entertainment
-                    </h1>
                     <h2 ng-style="{'margin-left': '20px'}">
                         <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons"
                             ng-style="{'font-size': '36px', 'height': '36px', 'margin-right': '20px'}">
@@ -45,6 +44,7 @@
                         </md-icon>
                         {{hCtrl.selectedType.name}}
                     </h2>
+                    <br/><br/>
                 </md-content>
             </md-content>
 
