@@ -1,6 +1,6 @@
-<div ng-controller="MainCtrl as mCtrl" layout="column" class="md-inline-form" layout-align="center center" ng-cloak>
+<div ng-controller="MainCtrl as mCtrl" layout="column" class="md-inline-form" layout-align="center center" id="content" ng-cloak>
     <md-content layout-gt-sm="column" layout-padding layout-align="center center">
-        <div>
+        <section layout="column" layout-align="center center" layout-wrap>
             <md-input-container>
                 <label>E-mail</label>
                 <input ng-model="mCtrl.mail">
@@ -21,9 +21,11 @@
                 <label>Nom</label>
                 <input ng-model="mCtrl.lastname">
             </md-input-container>
-        </div>
-        <md-button ng-click="mCtrl.signup()" class="md-raised md-primary">
-          Créer mon espace
-        </md-button>
+        </section>
+        <section layout="row" layout-align="center center" layout-wrap>
+            <md-button ng-click="mCtrl.signup()" class="md-raised md-primary">
+              Créer mon espace
+            </md-button>
+        </section>
     </md-content>
 </div>
