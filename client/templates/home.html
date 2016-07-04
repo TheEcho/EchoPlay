@@ -1,5 +1,5 @@
-<div layout="row" ng-controller="HomeCtrl as hCtrl" layout-wrap>
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
+<div layout="row" ng-controller="HomeCtrl as hCtrl">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" layout-wrap>
         <br/>
         <md-button ng-href="#/upload" class="md-raised md-primary">
             <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
@@ -32,7 +32,7 @@
         </h2>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe class="md-whiteframe-1dp" flex layout-align="start center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px', 'width': '80%'}">
+                <md-whiteframe class="md-whiteframe-1dp" flex="100" layout layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px', 'width': '80%'}">
                     <md-button ng-click="hCtrl.playFile($event, file)">
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
