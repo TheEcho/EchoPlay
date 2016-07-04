@@ -100,10 +100,6 @@ angular.module('EchoPlayApp')
             $rootScope.error = 'Failed to fetch details';
         });
 
-        function toggleSideList() {
-          $mdSidenav('left').toggle();
-        }
-
         function selectType (type) {
           self.selectedType = angular.isNumber(type) ? self.types[type] : type;
         }
