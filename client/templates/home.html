@@ -44,7 +44,7 @@
             </div>
 
             <md-content layout="column" layout-align="center">
-                <md-whiteframe flex ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'margin-left':' 40px', 'margin-right':' 40px', 'height': '80px'}" layout-align=" center">
+                <md-whiteframe flex ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'margin-left':' 40px', 'margin-right':' 40px'}" layout-align=" center">
                     <md-icon aria-label="{{file.icon}}" class="material-icons" ng-style="{'margin-left':' 40px'}">{{file.icon}}</md-icon>
                     <span flex layout-align="center center">
                         <md-button flex ng-click="hCtrl.playFile($event, file)" ng-style="{'margin-left':' 40px'}">
