@@ -3,7 +3,7 @@
         <br/>
         <md-button ng-href="#/upload" class="md-raised md-primary">
             <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
-            <span ng-style="{'font-size': '20px'}">Upload</span>
+            <span ng-style="{'font-size': '16px'}">Upload</span>
         </md-button>
         <br/>
         <md-divider></md-divider>
@@ -12,14 +12,14 @@
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
-                    <span ng-style="{'font-size': '20px'}">{{type.name}}</span>
+                    <span ng-style="{'font-size': '16px'}">{{type.name}}</span>
                 </md-button>
             </md-list-item>
         </md-list>
         <span flex></span>
         <md-button ng-click="mCtrl.logout()">
             <md-icon aria-label="input" class="material-icons">input</md-icon>
-            <span ng-style="{'font-size': '20px'}">Logout</span>
+            <span ng-style="{'font-size': '16px'}">Logout</span>
         </md-button>
     </md-sidenav>
     <md-content layout="column" class="homeCSS">
@@ -32,7 +32,7 @@
         </h2>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe layout-wrap layout-fill>
+                <md-whiteframe layout-fill>
                     <span flex="50">
                         <md-button ng-click="hCtrl.playFile($event, file)">
                             <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
