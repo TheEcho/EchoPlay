@@ -78,7 +78,7 @@ angular.module('EchoPlayApp')
         self.selectedType  = self.types[0];
         self.selectedFile  = null;
         self.playFile      = playFile;
-        self.playFile      = playFile;
+        self.selectType    = selectType;
         self.deleteFile    = deleteFile;
 
         Main.home(function(res) {
