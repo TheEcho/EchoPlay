@@ -32,8 +32,8 @@
         </h2>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe>
-                    <span flex layout-align="start none">
+                <md-whiteframe layout-padding layout-wrap layout-fill>
+                    <span flex>
                         <md-button ng-click="hCtrl.playFile($event, file)">
                             <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                             {{file.name}}
