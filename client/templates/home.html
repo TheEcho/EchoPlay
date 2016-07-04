@@ -30,7 +30,7 @@
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
                     </md-button>
-                    <md-button ng-click="hCtrl.downloadFile(file)" ng-style="{'width': '20px','position': 'relative', 'right': '10px'}">
+                    <md-button download="{{file.name}}" ng-href="{{file.url}}" ng-style="{'width': '20px','position': 'relative', 'right': '10px'}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
                     <md-button ng-click="hCtrl.deleteFile(file)" ng-style="{'width': '20px','position': 'relative', 'right': '10px'}">
