@@ -6,6 +6,16 @@ html, body {
   padding: 0px;
 }
 
+.homeCSS md-whiteframe {
+  background: #eee;
+  border-radius: 3px;
+  text-align: center;
+  margin: 10px;
+  position: relative !important;
+  padding-bottom: 10px;
+  height: 50px;
+}
+
 .menu {
   background-color: transparent;
   border: none;
