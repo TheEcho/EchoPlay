@@ -41,10 +41,10 @@
             </md-content>
         </md-content>
 
-        <md-content flex layout="row" layout-align="center">
+        <md-content flex layout="row" layout-align="space-around center">
             <md-content layout="column" layout-align="center">
                 <md-whiteframe ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
-                    <section layout-align="space-around center">
+                    <section layout-align="start center">
                         <md-button flex ng-click="hCtrl.playFile($event, file)">
                             <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                             <span flex>{{file.name}}</span>
