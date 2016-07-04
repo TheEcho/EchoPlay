@@ -2,6 +2,7 @@
 
 var express        = require('express');
 var app            = express();
+var http           = require('http').createServer(app);
 var mongoose       = require('mongoose');
 var settings       = require('./config/settings.js');
 var morgan         = require('morgan');
@@ -27,5 +28,5 @@ app.use(function(req, res, next) {
 });
 require('./app/routes.js')(app);
 
-app.listen(settings.port);
+http.listen(settings.port);
 console.log('App listening on port ' + settings.port);
