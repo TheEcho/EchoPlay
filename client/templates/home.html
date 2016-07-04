@@ -1,5 +1,10 @@
 <div flex layout="row" ng-controller="HomeCtrl as hCtrl">
     <md-sidenav ng-click="hCtrl.toggleList()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+        <md-button ng-href="#/upload">
+            <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
+            Upload
+        </md-button>
+        <br/>
         <md-list layout="column">
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
