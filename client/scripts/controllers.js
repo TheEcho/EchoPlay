@@ -188,5 +188,6 @@ angular.module('EchoPlayApp')
     }
 
     function imageCtrl($rootScope, $scope) {
+        console.log($rootScope.File.url);
         $scope.media = $rootScope.File.url;
     }
