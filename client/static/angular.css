@@ -34,7 +34,7 @@ md-sidenav  md-list {
 }
 
 #content {
-  overflow: hidden;
+  overflow: auto;
 }
 
 #content  {

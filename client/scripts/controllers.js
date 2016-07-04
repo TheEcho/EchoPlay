@@ -103,6 +103,7 @@ angular.module('EchoPlayApp')
         function selectType (type) {
             self.selectedType = type;
             Main.home(function(res) {
+                self.files = [ ];
                 self.user = res.userid;
                 for (var i = 0; i < res.data.length; i ++) {
                     var file = {
