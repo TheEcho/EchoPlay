@@ -21,10 +21,10 @@
             Logout
         </md-button>
     </md-sidenav>
-    <md-content flex id="content" class="container">
+    <md-content flex id="content">
         <h1>
-            <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons" ng-style="{'font-size': '36px', 'height': '36px'}">{{hCtrl.selectedType.icon}} </md-icon>
-            Echo Play - Cloud Entertainment
+            <md-icon aria-label="{{hCtrl.selectedType.icon}}" class="material-icons" ng-style="{'font-size': '36px', 'height': '36px'}">{{hCtrl.selectedType.icon}}</md-icon>
+             Echo Play - Cloud Entertainment
         </h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
@@ -36,7 +36,7 @@
                     <md-button download="{{file.name}}" ng-href="{{file.url}}" ng-style="{'text-align': 'right'}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
-                    <md-button ng-click="hCtrl.deleteFile(file)" ng-style="{'text-align': 'left'}">
+                    <md-button ng-click="hCtrl.deleteFile(file)" ng-style="{'text-align': 'right'}">
                         <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                     </md-button>
                 </md-whiteframe>
