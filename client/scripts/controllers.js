@@ -89,7 +89,7 @@ angular.module('EchoPlayApp')
                     name: res.data[i].name,
                     ext: res.data[i].ext,
                     url: '/media/' + self.user + '/' + res.data[i].name,
-                    icon: 'movie'
+                    icon: res.data[i].icon
                 };
                 self.files.push(file);
             }
@@ -115,10 +115,22 @@ angular.module('EchoPlayApp')
 
         function playFile (ev, file) {
             self.selectedFile = angular.isNumber(file) ? self.files[file] : file;
+            if (file.icon == 'movie') {
+                var ctrl = movieCtrl;
+                var template = 'templates/play_movie.html';
+            } else if (file.icon == 'music_note') {
+                var ctrl = musicCtrl;
+                var template = 'templates/play_music.html';
+            } else if (file.icon == 'image') {
+                var ctrl = imageCtrl;
+                var template = 'templates/play_image.html';
+            } else {
+                return;
+            }
             $rootScope.File = file;
             $mdDialog.show({
-                controller: MediaCtrl,
-                templateUrl: 'templates/play.html',
+                controller: ctrl,
+                templateUrl: template,
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true
@@ -153,12 +165,8 @@ angular.module('EchoPlayApp')
         };
     }]);
 
-    function MediaCtrl($rootScope, $sce, $scope, $mdDialog) {
+    function movieCtrl($rootScope, $sce, $scope, $mdDialog) {
         $scope.media = {
-            width: 740,
-            height: 380,
-            autoHide: false,
-            autoPlay: true,
             sources: [
                 {src: $sce.trustAsResourceUrl($rootScope.File.url), type: "video/" + $rootScope.File.ext}
             ],
@@ -168,4 +176,21 @@ angular.module('EchoPlayApp')
 				poster: "http://www.videogular.com/assets/images/videogular.png"
 			}
         };
+    }
+
+    function musicCtrl($rootScope, $mdDialog) {
+        $scope.media = {
+            sources: [
+                {src: $sce.trustAsResourceUrl($rootScope.File.url), type: "audio/" + $rootScope.File.ext}
+            ],
+            tracks: [],
+            theme: "lib/videogular-themes-default/videogular.css",
+            plugins: {
+				poster: "http://www.videogular.com/assets/images/videogular.png"
+			}
+        };
+    }
+
+    function imageCtrl($rootScope, $scope) {
+        $scope.media = $rootScope.File.url;
     }

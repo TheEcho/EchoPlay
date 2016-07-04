@@ -144,6 +144,10 @@ module.exports = function (app) {
                     var FileModel = new File();
                     FileModel.name = file.name;
                     FileModel.ext = file.name.substr((~-file.name.lastIndexOf(".") >>> 0) + 2);
+                    if (ext == 'mp4' || ext == 'ogg' || ext == 'webm') FileModel.icon = 'movie';
+                    else if (ext == 'mp3' || ext == 'wav') FileModel.icon = 'music_note';
+                    else if (ext == 'png' || ext == 'jpeg' || ext == 'jpg' || ext == 'gif') FileModel.icon = 'image';
+                    else FileModel.icon = 'insert_drive_file';
                     FileModel.path = dir;
                     FileModel.user = user;
                     FileModel.save(function (err, file1) {});

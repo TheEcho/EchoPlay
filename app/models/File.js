@@ -5,12 +5,12 @@ var Schema   = mongoose.Schema;
 var schema = new Schema({
     name: String,
     ext: String,
+    icon: String,
     path: String,
     user: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
-    recordFile: String
+    }]
 });
 
 module.exports = mongoose.model('File', schema);
