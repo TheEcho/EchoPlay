@@ -1,14 +1,19 @@
 <div class="container" ng-controller="UploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
-        <md-button ng-href="#/">
-            <md-icon aria-label="input" class="material-icons">cloud</md-icon>
-            Home
-        </md-button>
-        <br/>
-        <md-button ng-href="#/upload">
-            <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
-            Upload
-        </md-button>
+        <md-list layout="column">
+            <md-list-item ng-repeat="type in hCtrl.types">
+                <md-button ng-href="#/" class="md-raised md-primary">
+                    <md-icon aria-label="input" class="material-icons">cloud</md-icon>
+                    Home
+                </md-button>
+            </md-list-item>
+            <md-list-item ng-repeat="type in hCtrl.types">
+                <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
+                    <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
+                    <h5>{{type.name}}</h5>
+                </md-button>
+            </md-list-item>
+        </md-list>
         <span flex></span>
         <md-button ng-click="mCtrl.logout()">
             <md-icon aria-label="input" class="material-icons">input</md-icon>
