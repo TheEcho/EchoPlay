@@ -1,5 +1,5 @@
-<div layout="row" ng-controller="HomeCtrl as hCtrl" class="homeCSS">
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" layout-wrap>
+<div layout="row" ng-controller="HomeCtrl as hCtrl" id="content">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
         <br/>
         <md-button ng-href="#/upload" class="md-raised md-primary">
             <md-icon aria-label="input" class="material-icons">cloud_upload</md-icon>
@@ -22,7 +22,7 @@
             Logout
         </md-button>
     </md-sidenav>
-    <md-content flex id="content">
+    <md-content layout="row" layout-fill layout-align="center center" class="homeCSS">
         <h1>
             Echo Play - Cloud Entertainment
         </h1>
@@ -32,7 +32,7 @@
         </h2>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe layout="row">
+                <md-whiteframe>
                     <md-button flex ng-click="hCtrl.playFile($event, file)">
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
