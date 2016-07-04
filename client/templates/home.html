@@ -10,7 +10,7 @@
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
-                    <h5>{{type.name}}</h5>
+                    {{type.name}}
                 </md-button>
             </md-list-item>
         </md-list>
