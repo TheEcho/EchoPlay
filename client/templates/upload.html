@@ -4,6 +4,7 @@
             <md-icon aria-label="input" class="material-icons">cloud</md-icon>
             Home
         </md-button>
+        <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
         <span flex></span>
         <md-button ng-click="mCtrl.logout()">
             <md-icon aria-label="input" class="material-icons">input</md-icon>
@@ -12,18 +13,6 @@
     </md-sidenav>
     <md-content flex id="content">
         <div nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
-            <div>
-                <h3>Select files</h3>
-                <div ng-show="uploader.isHTML5">
-                    <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
-                        Base drop zone
-                    </div>
-                </div>
-                Multiple
-                <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
-                Single
-                <input type="file" nv-file-select="" uploader="uploader" />
-            </div>
             <div>
                 <h3>Upload queue</h3>
                 <p>Queue length: {{ uploader.queue.length }}</p>
@@ -38,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in $data">
+                        <tr ng-repeat="item in uploader.queue">
                             <td><strong>{{ item.file.name }}</strong></td>
                             <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024 | number:2 }} Mo</td>
                             <td ng-show="uploader.isHTML5">
