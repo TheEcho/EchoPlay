@@ -43,8 +43,8 @@
 
         <md-content layout="row" layout-align="center">
             <md-content layout="column" layout-align="center">
-                <md-whiteframe ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
-                    <section flex layout-align="start center">
+                <md-whiteframe flex ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
+                    <section layout-align="start center">
                         <md-button ng-click="hCtrl.playFile($event, file)">
                             <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                             {{file.name}}
