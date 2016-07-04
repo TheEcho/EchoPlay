@@ -7,7 +7,9 @@
                     Upload
                 </md-button>
             </md-list-item>
+            <br/>
             <md-divider></md-divider>
+            <br/>
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
                     <md-icon aria-label="{{type.icon}}" class="material-icons">{{type.icon}}</md-icon>
@@ -28,7 +30,7 @@
         </h1>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
+                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px', 'width': '80%'}">
                     <md-button ng-click="hCtrl.playFile($event, file)">
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}

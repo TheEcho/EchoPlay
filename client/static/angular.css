@@ -33,12 +33,6 @@ md-sidenav  md-list {
     padding: 0px 0px 8px 0px;
 }
 
-md-whiteframe {
-    width:80%;
-    margin: 10px;
-    text-align:center !important;
-}
-
 #content {
   overflow: hidden;
 }
