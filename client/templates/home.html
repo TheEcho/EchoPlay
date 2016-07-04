@@ -22,7 +22,7 @@
             Logout
         </md-button>
     </md-sidenav>
-    <md-content flex id="content" layout-fill>
+    <md-content flex id="content">
         <h1>
             Echo Play - Cloud Entertainment
         </h1>
@@ -32,7 +32,7 @@
         </h2>
         <md-list>
             <md-list-item ng-repeat="file in hCtrl.files">
-                <md-whiteframe class="md-whiteframe-1dp" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
+                <md-whiteframe class="md-whiteframe-1dp" flex layout layout-fill layout-align="center center" ng-style="{'background': '#eee', 'margin':' 10px', 'height': '50px'}">
                     <md-button ng-click="hCtrl.playFile($event, file)">
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
