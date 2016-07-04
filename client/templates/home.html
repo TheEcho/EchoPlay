@@ -47,9 +47,9 @@
 
         <md-content layout="column" layout-align="center">
             <md-whiteframe flex ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin':' 10px', 'margin-left':' 40px', 'margin-right':' 40px', 'height': '50px'}" layout-align=" center">
-                <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                <md-icon aria-label="{{file.icon}}" class="material-icons" ng-style="{'margin-left':' 40px'}">{{file.icon}}</md-icon>
                 <span flex layout-align="center center">
-                    <md-button flex ng-click="hCtrl.playFile($event, file)">
+                    <md-button flex ng-click="hCtrl.playFile($event, file)" ng-style="{'margin-left':' 40px'}">
                         <span flex>{{file.name}}</span>
                     </md-button>
                 </span>
@@ -57,6 +57,8 @@
                     <md-button download="{{file.name}}" ng-href="{{file.url}}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
+                </section>
+                <section layout-align="end center">
                     <md-button ng-click="hCtrl.deleteFile(file)">
                         <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                     </md-button>
