@@ -30,7 +30,7 @@
     <md-content flex layout="column">
 
         <md-content layout="row" layout-align="start">
-            <md-content flayout="column" layout-align="right">
+            <md-content flayout="column">
                 <h1>
                     Echo Play - Cloud Entertainment
                 </h1>
@@ -50,11 +50,11 @@
                             <span>{{file.name}}</span>
                         </md-button>
                     </section>
-                    <section layout="row" layout-align="end center">
-                        <md-button download="{{file.name}}" ng-href="{{file.url}}">
+                    <section layout="row">
+                        <md-button download="{{file.name}}" ng-href="{{file.url}}" layout-align="end center">
                             <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                         </md-button>
-                        <md-button ng-click="hCtrl.deleteFile(file)">
+                        <md-button ng-click="hCtrl.deleteFile(file)" layout-align="end center">
                             <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                         </md-button>
                     </section>
