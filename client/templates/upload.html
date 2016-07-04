@@ -1,10 +1,10 @@
-<div flex layout="row" class="container" ng-controller="UploadCtrl">
+<div flex layout="row" class="container" ng-controller="UploadCtrl as uCtrl">
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" layout="column">
         <md-button ng-href="#/" class="md-raised md-primary">
             <md-icon aria-label="input" class="material-icons">cloud</md-icon>
             Home
         </md-button>
-        <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+        <input type="file" nv-file-select="" uploader="uCtrl.uploader" multiple  /><br/>
         <span flex></span>
         <md-button ng-click="mCtrl.logout()">
             <md-icon aria-label="input" class="material-icons">input</md-icon>
@@ -12,24 +12,24 @@
         </md-button>
     </md-sidenav>
     <md-content flex id="content">
-        <div nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+        <div nv-file-drop="" uploader="uCtrl.uploader" filters="queueLimit, customFilter">
             <h3>Upload queue</h3>
-            <p>Queue length: {{ uploader.queue.length }}</p>
+            <p>Queue length: {{ uCtrl..queue.length }}</p>
             <table ng-table="tableParams" class="table" id="fileList" show-filter="false">
                 <thead>
                     <tr>
                         <th width="50%">Name</th>
-                        <th ng-show="uploader.isHTML5">Size</th>
-                        <th ng-show="uploader.isHTML5">Progress</th>
+                        <th ng-show="uCtrl..isHTML5">Size</th>
+                        <th ng-show="uCtrl..isHTML5">Progress</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in uploader.queue">
+                    <tr ng-repeat="item in uCtrl.uploader.queue">
                         <td><strong>{{ item.file.name }}</strong></td>
-                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024 | number:2 }} Mo</td>
-                        <td ng-show="uploader.isHTML5">
+                        <td ng-show="uCtrl.uploader.isHTML5" nowrap>{{ item.file.size/1024/1024 | number:2 }} Mo</td>
+                        <td ng-show="uCtrl.uploader.isHTML5">
                             <div class="progress" style="margin-bottom: 0;">
                                 <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
                             </div>
@@ -58,16 +58,16 @@
                 <div>
                     Progression de la file d'attente:
                     <div class="progress" style="">
-                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uCtrl.uploader.progress + '%' }"></div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                <button type="button" class="btn btn-success btn-s" ng-click="uCtrl.uploader.uploadAll()" ng-disabled="!uCtrl.uploader.getNotUploadedItems().length">
                     <span class="glyphicon glyphicon-upload"></span> Upload All
                 </button>
-                <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                <button type="button" class="btn btn-warning btn-s" ng-click="uCtrl.uploader.cancelAll()" ng-disabled="!uCtrl.uploader.isUploading">
                     <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
                 </button>
-                <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                <button type="button" class="btn btn-danger btn-s" ng-click="uCtrl.uploader.clearQueue()" ng-disabled="!uCtrl.uploader.queue.length">
                     <span class="glyphicon glyphicon-trash"></span> Remove All
                 </button>
             </div>
