@@ -43,12 +43,12 @@
                 </div>
             </div>
 
-            <div layout="column" layout-align="start stretch">
+            <md-content layout="column" layout-align="start stretch">
                 <md-whiteframe ng-repeat="file in hCtrl.files" layout="row" ng-style="{'background': '#eee', 'margin-left':' 40px', 'margin-right':' 40px', 'margin':' 10px'}" layout-align="start center">
                     <md-icon aria-label="{{file.icon}}" class="material-icons" ng-style="{'margin-left':' 40px'}">{{file.icon}}</md-icon>
                     <span layout-align="center center">
-                        <md-button flex ng-click="hCtrl.playFile($event, file)" ng-style="{'margin-left':' 40px'}">
-                            <span flex>{{file.name}}</span>
+                        <md-button ng-click="hCtrl.playFile($event, file)" ng-style="{'margin-left':' 40px'}">
+                            <span>{{file.name}}</span>
                         </md-button>
                     </span>
                     <section layout-align="end center">
@@ -62,7 +62,7 @@
                         </md-button>
                     </section>
                 </md-whiteframe>
-            </div>
+            </md-content>
 
         </md-content>
     </div>
