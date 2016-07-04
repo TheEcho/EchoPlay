@@ -161,7 +161,7 @@ angular.module('EchoPlayApp')
         };
     }]);
 
-    function movieCtrl($rootScope, $sce, $scope, $mdDialog) {
+    function movieCtrl($rootScope, $sce, $scope) {
         $scope.media = {
             sources: [
                 {src: $sce.trustAsResourceUrl($rootScope.File.url), type: "video/" + $rootScope.File.ext}
@@ -174,7 +174,7 @@ angular.module('EchoPlayApp')
         };
     }
 
-    function musicCtrl($rootScope, $mdDialog) {
+    function musicCtrl($rootScope, $sce, $scope) {
         $scope.media = {
             sources: [
                 {src: $sce.trustAsResourceUrl($rootScope.File.url), type: "audio/" + $rootScope.File.ext}
