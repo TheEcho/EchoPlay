@@ -2,6 +2,7 @@ html, body {
   font-family: 'Roboto', sans-serif;
   font-size:14px;
   height:100%;
+  width:100%;
   margin: 0px;
   padding: 0px;
 }
@@ -13,21 +14,12 @@ html, body {
   height: 50px;
 }
 
-.menu {
-  background-color: transparent;
-  border: none;
-  height: 38px;
-  margin: 16px;
-  width: 36px;
-}
-
-
 md-toolbar h3 {
   margin: auto;
   font-weight: 500;
 }
 
-md-sidenav > md-list-item > md-button {
+md-sidenav md-list-item .md-button {
   width:100%;
   text-align:left !important;
 }
