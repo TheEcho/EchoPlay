@@ -1,4 +1,5 @@
 <div layout="row" ng-controller="HomeCtrl as hCtrl">
+
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2">
         <br/>
         <md-button ng-href="#/upload" class="md-raised md-primary">
@@ -8,6 +9,7 @@
         <br/>
         <md-divider></md-divider>
         <br/>
+
         <md-list layout="column">
             <md-list-item ng-repeat="type in hCtrl.types">
                 <md-button ng-click="hCtrl.selectType(type)" ng-class="{'selected' : type === hCtrl.selectedType }">
@@ -16,13 +18,17 @@
                 </md-button>
             </md-list-item>
         </md-list>
+
         <span flex></span>
         <md-button ng-click="mCtrl.logout()">
             <md-icon aria-label="input" class="material-icons">input</md-icon>
             Logout
         </md-button>
     </md-sidenav>
+
+
     <md-content layout="column">
+
         <md-content layout-align="center">
             <h1>
                 Echo Play - Cloud Entertainment
@@ -32,24 +38,25 @@
                 {{hCtrl.selectedType.name}}
             </h2>
         </md-content>
-        <br/>
-        <md-divider></md-divider>
-        <br/>
+
         <md-content flex layout="column" layout-align="center">
             <md-whiteframe ng-repeat="file in hCtrl.files" flex layout="row" layout-align="center"
                 ng-style="{'background': '#eee', 'margin':' 30px', 'height': '50px'}">
-                <md-button ng-click="hCtrl.playFile($event, file)">
-                    <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
-                    {{file.name}}
-                </md-button>
-                <span flex></span>
-                <md-button download="{{file.name}}" ng-href="{{file.url}}">
-                    <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
-                </md-button>
-                <md-button ng-click="hCtrl.deleteFile(file)">
-                    <md-icon aria-label="delete" class="material-icons">delete</md-icon>
-                </md-button>
+                <section layout-align="center">
+                    <md-button ng-click="hCtrl.playFile($event, file)">
+                        <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
+                        {{file.name}}
+                    </md-button>
+                    <span flex></span>
+                    <md-button download="{{file.name}}" ng-href="{{file.url}}">
+                        <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
+                    </md-button>
+                    <md-button ng-click="hCtrl.deleteFile(file)">
+                        <md-icon aria-label="delete" class="material-icons">delete</md-icon>
+                    </md-button>
+                </section>
             </md-whiteframe>
         </md-content>
+
     </md-content>
 </div>
