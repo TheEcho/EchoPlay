@@ -68,7 +68,7 @@ angular.module('EchoPlayApp')
 
         self.files         = [ ];
         self.types         = [
-            {name: 'Tous les fichier', icon: 'folder'},
+            {name: 'Tous les fichier', icon: 'insert_drive_file'},
             {name: 'Vidéo', icon: 'movie'},
             {name: 'Audio', icon: 'music_note'},
             {name: 'Image', icon: 'image'}
@@ -101,7 +101,28 @@ angular.module('EchoPlayApp')
         });
 
         function selectType (type) {
-          self.selectedType = angular.isNumber(type) ? self.types[type] : type;
+            self.selectedType = type;
+            Main.home(function(res) {
+                self.user = res.userid;
+                for (var i = 0; i < res.data.length; i ++) {
+                    var file = {
+                        id: res.data[i]._id,
+                        name: res.data[i].name,
+                        ext: res.data[i].ext,
+                        url: '/media/' + self.user + '/' + res.data[i].name,
+                        icon: res.data[i].icon
+                    };
+                    if (type.icon == 'insert_drive_file' || file.icon == type.icon) {
+                        self.files.push(file);
+                    }
+                }
+                if (self.files.length > 0) {
+                    self.selectedFile = self.files[0];
+                }
+                $route.reload();
+            }, function() {
+                $rootScope.error = 'Failed to fetch details';
+            });
         }
 
         function playFile (ev, file) {
