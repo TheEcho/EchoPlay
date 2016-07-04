@@ -6,7 +6,7 @@ html, body {
   padding: 0px;
 }
 
-md-sidenav md-button {
+md-sidenav md-list-item .md-button {
   width:100%;
   text-align:left !important;
 }
