@@ -33,10 +33,10 @@
                         <md-icon aria-label="{{file.icon}}" class="material-icons">{{file.icon}}</md-icon>
                         {{file.name}}
                     </md-button>
-                    <md-button download="{{file.name}}" ng-href="{{file.url}}" ng-style="{'width': '20px', 'text-align': 'right'}">
+                    <md-button download="{{file.name}}" ng-href="{{file.url}}" ng-style="{'text-align': 'right'}">
                         <md-icon aria-label="file_download" class="material-icons">file_download</md-icon>
                     </md-button>
-                    <md-button ng-click="hCtrl.deleteFile(file)" ng-style="{'width': '20px', 'text-align': 'left'}">
+                    <md-button ng-click="hCtrl.deleteFile(file)" ng-style="{'text-align': 'left'}">
                         <md-icon aria-label="delete" class="material-icons">delete</md-icon>
                     </md-button>
                 </md-whiteframe>
