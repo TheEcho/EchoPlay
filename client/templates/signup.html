@@ -1,7 +1,6 @@
-<div ng-controller="MainCtrl as mCtrl" layout="column" class="md-inline-form" layout-align="center center" ng-cloak>
-    <md-content flex layout-gt-sm="column" layout-padding layout-align="center center">
-        <div flex/>
-        <section layout="column" layout-align="center center" layout-wrap>
+<div ng-controller="MainCtrl as mCtrl" layout="column" class="md-inline-form" layout-align="center center" layout-fill style="min-height: 500px" ng-cloak>
+    <md-content flex layout-gt-sm="column">
+        <section layout="column">
             <md-input-container>
                 <label>E-mail</label>
                 <input ng-model="mCtrl.mail">
@@ -23,11 +22,10 @@
                 <input ng-model="mCtrl.lastname">
             </md-input-container>
         </section>
-        <section layout="row" layout-align="center center" layout-wrap>
+        <section layout="row">
             <md-button ng-click="mCtrl.signup()" class="md-raised md-primary">
               Créer mon espace
             </md-button>
         </section>
-        <div flex/>
     </md-content>
 </div>
